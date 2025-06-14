@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://l58efsb2wekl"]
+
+[ext_resource type="Script" path="res://Scripts/Overworld/character_ovw.gd" id="1_d8pnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24v20"]
+size = Vector2(88, 169)
+
+[node name="Character" type="RigidBody2D"]
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_d8pnl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 7.5)
+shape = SubResource("RectangleShape2D_24v20")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csdvhye637wf"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/character_btl.gd" id="1_j5jls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qd18"]
+size = Vector2(62.5, 152)
+
+[node name="character_btl" type="Area2D"]
+script = ExtResource("1_j5jls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1qd18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

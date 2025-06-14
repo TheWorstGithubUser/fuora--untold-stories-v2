@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1066j4n0m05k"]
+
+[ext_resource type="Script" path="res://Scripts/Overworld/load_zone.gd" id="1_ehqsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce0kg"]
+
+[node name="LoadZone" type="Area2D" groups=["LoadZone"]]
+script = ExtResource("1_ehqsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ce0kg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

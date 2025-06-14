@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bappaam1wf7qp"]
+
+[ext_resource type="Script" path="res://Scripts/Global/character_dict.gd" id="1_267px"]
+[ext_resource type="Texture2D" uid="uid://cvd7jo3ndyiev" path="res://Assets/Overworld/Characters/Knight Placeholder/OurpleKnight.png" id="2_svhwf"]
+[ext_resource type="Texture2D" uid="uid://c5aupbbwf2umi" path="res://Assets/Overworld/Characters/Knight Placeholder/KnightButLikeSmaller.png" id="3_mmonl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_svhwf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvm03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mmonl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Dictionary" type="Node"]
+
+[node name="Characters" type="Node" parent="."]
+script = ExtResource("1_267px")
+
+[node name="0_TestKnightOurple" type="AnimatedSprite2D" parent="Characters"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_8m03w")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="1_TestKnightBlue" type="AnimatedSprite2D" parent="Characters"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_tvm03")
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy_abilities" type="Node" parent="."]
