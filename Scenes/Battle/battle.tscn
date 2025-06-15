@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://b2xw0p0a2r5e1"]
 
+[ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
-[ext_resource type="Script" path="res://Scenes/Battle/signal_bus_btl.gd" id="1_ycuki"]
 [ext_resource type="PackedScene" uid="uid://csdvhye637wf" path="res://Scenes/Battle/character_btl.tscn" id="2_i7djy"]
 [ext_resource type="PackedScene" uid="uid://c8plq10jcksaf" path="res://Scenes/Battle/fervent_soul.tscn" id="3_n8cj8"]
 [ext_resource type="PackedScene" uid="uid://cf8ctgnhpk7gy" path="res://Scenes/Battle/enemy_btl.tscn" id="4_ba1v5"]
@@ -18,7 +18,7 @@ sources/0 = SubResource("TileSetAtlasSource_x6dj4")
 [node name="Battle" type="Node2D"]
 
 [node name="SignalBus_btl" type="Node" parent="."]
-script = ExtResource("1_ycuki")
+script = ExtResource("1_invmm")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 visible = false

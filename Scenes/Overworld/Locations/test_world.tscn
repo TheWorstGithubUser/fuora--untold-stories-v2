@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://brbv0qka5armq"]
+[gd_scene load_steps=10 format=4 uid="uid://brbv0qka5armq"]
 
 [ext_resource type="PackedScene" uid="uid://db84fb66tncrh" path="res://Scenes/Overworld/player_ovw.tscn" id="1_7fo7q"]
+[ext_resource type="Script" path="res://Scenes/Overworld/Locations/signal_bus_ovw.gd" id="1_amg1j"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="2_kblvp"]
 [ext_resource type="Texture2D" uid="uid://cnk601u1yhlw6" path="res://Assets/Other/testgrass_with_annoying_fucking_red_pixel.png" id="3_akjdn"]
 [ext_resource type="PackedScene" uid="uid://c5b7cgu4qu1ud" path="res://Scenes/Overworld/enemy_ovw.tscn" id="4_sld47"]
@@ -23,6 +24,9 @@ sources/1 = SubResource("TileSetAtlasSource_yujac")
 
 [node name="TestWorld" type="Node2D"]
 
+[node name="SignalBus_ovw" type="Node" parent="."]
+script = ExtResource("1_amg1j")
+
 [node name="Player_ovw" parent="." instance=ExtResource("1_7fo7q")]
 position = Vector2(-210, 78)
 
@@ -39,4 +43,5 @@ tile_set = SubResource("TileSet_uo31n")
 position = Vector2(780, -229)
 
 [node name="Character" parent="." instance=ExtResource("5_anjnt")]
-position = Vector2(-112, 76)
+position = Vector2(-88, 78)
+ID = 1

@@ -6,9 +6,11 @@ var ID = 1
 # Movement (WASD)
 @export var speed = 400 # How fast the player will move (pixels/sec)
 var velocity
+var playerPosition : Vector2 # For use in other scripts
 
 # Interaction (E)
 var busy = false
+
 
 func _ready() -> void:
 	var character = CharacterDict.getCharacterAt(ID)
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 		pass
 		
 	position += velocity * delta
+	playerPosition = position
 	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:

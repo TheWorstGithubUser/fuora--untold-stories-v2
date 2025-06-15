@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8plq10jcksaf"]
 
-[ext_resource type="Script" path="res://Scenes/Battle/fervent_soul.gd" id="1_gxxjx"]
 [ext_resource type="Texture2D" uid="uid://cgfk88g2tfbn0" path="res://Assets/Other/icon.svg" id="1_o2lw3"]
+[ext_resource type="Script" path="res://Scripts/Battle/fervent_soul_btl.gd" id="1_rjt8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lciv2"]
 size = Vector2(115, 118)
@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [node name="Fervent_Soul" type="Area2D"]
-script = ExtResource("1_gxxjx")
+script = ExtResource("1_rjt8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lciv2")
