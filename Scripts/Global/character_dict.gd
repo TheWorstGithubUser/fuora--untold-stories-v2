@@ -12,7 +12,7 @@ class Character:
 
 # Array for finding characters
 var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-var party = [-1, -1, -1] # Holds character IDs
+var party = [-1, 0, -1] # Holds character IDs
 # Default value for party is -1, which means no character is currently using that slot
 
 func _ready() -> void:

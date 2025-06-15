@@ -7,6 +7,7 @@ var ID = 1
 @export var speed = 400 # How fast the player will move (pixels/sec)
 var velocity
 var playerPosition : Vector2 # For use in other scripts
+@onready var screen_size = get_viewport_rect().size
 
 # Interaction (E)
 var busy = false
@@ -40,10 +41,7 @@ func _process(delta: float) -> void:
 		#animatedSprite.animation = "Idle"
 		#animatedSprite.play()
 		pass
-		
 	position += velocity * delta
-	playerPosition = position
-	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:
 		animatedSprite.flip_h = velocity.x < 0

@@ -19,6 +19,7 @@ size = Vector2(88, 169)
 
 [node name="Player_ovw" type="RigidBody2D" groups=["Player"]]
 collision_mask = 2
+gravity_scale = 0.0
 script = ExtResource("1_xbkne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
