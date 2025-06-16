@@ -12,7 +12,7 @@ class Character:
 
 # Array for finding characters
 var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-var party = [-1, 0, -1] # Holds character IDs
+var party = [-1, 0, 2] # Holds character IDs
 # Default value for party is -1, which means no character is currently using that slot
 
 func _ready() -> void:
@@ -37,13 +37,13 @@ func _ready() -> void:
 	Characters.insert(testKnightBlue.ID, testKnightBlue)
 	
 	# TODO: Replace with something else because its using the same anims as blue
-	var testKnightBlue2 = Character.new()
-	testKnightBlue2.ID = 2
-	testKnightBlue2.maxHealth = 100
-	testKnightBlue2.health = testKnightBlue2.maxHealth
-	testKnightBlue2.mana = 100
-	testKnightBlue2.animatedSprite = GameDictionary.get_child(0).get_child(testKnightBlue.ID).get_sprite_frames()
-	
+	var testKnightGreen = Character.new()
+	testKnightGreen.ID = 2
+	testKnightGreen.maxHealth = 100
+	testKnightGreen.health = testKnightGreen.maxHealth
+	testKnightGreen.mana = 100
+	testKnightGreen.animatedSprite = GameDictionary.get_child(0).get_child(testKnightGreen.ID).get_sprite_frames()
+	Characters.insert(testKnightGreen.ID, testKnightGreen)
 	#ababababababababababa
 	
 	#endregion

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bappaam1wf7qp"]
+[gd_scene load_steps=8 format=3 uid="uid://bappaam1wf7qp"]
 
 [ext_resource type="Script" path="res://Scripts/Global/character_dict.gd" id="1_267px"]
 [ext_resource type="Texture2D" uid="uid://cvd7jo3ndyiev" path="res://Assets/Overworld/Characters/Knight Placeholder/OurpleKnight.png" id="2_svhwf"]
 [ext_resource type="Texture2D" uid="uid://c5aupbbwf2umi" path="res://Assets/Overworld/Characters/Knight Placeholder/KnightButLikeSmaller.png" id="3_mmonl"]
+[ext_resource type="Texture2D" uid="uid://cu4uce3n82ym5" path="res://Assets/Overworld/Characters/Knight Placeholder/GreenKnight.png" id="4_2e83n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
 animations = [{
@@ -22,7 +23,18 @@ animations = [{
 "texture": ExtResource("3_mmonl")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jptr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2e83n")
+}],
+"loop": true,
+"name": &"Idle",
 "speed": 5.0
 }]
 
@@ -40,6 +52,14 @@ autoplay = "Idle"
 [node name="1_TestKnightBlue" type="AnimatedSprite2D" parent="Characters"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_tvm03")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="2_TestKnightGreen" type="AnimatedSprite2D" parent="Characters"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_8jptr")
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="Abilities" type="Node" parent="."]
 
