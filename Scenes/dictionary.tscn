@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bappaam1wf7qp"]
+[gd_scene load_steps=9 format=3 uid="uid://bappaam1wf7qp"]
 
 [ext_resource type="Script" path="res://Scripts/Global/character_dict.gd" id="1_267px"]
 [ext_resource type="Texture2D" uid="uid://cvd7jo3ndyiev" path="res://Assets/Overworld/Characters/Knight Placeholder/OurpleKnight.png" id="2_svhwf"]
 [ext_resource type="Texture2D" uid="uid://c5aupbbwf2umi" path="res://Assets/Overworld/Characters/Knight Placeholder/KnightButLikeSmaller.png" id="3_mmonl"]
 [ext_resource type="Texture2D" uid="uid://cu4uce3n82ym5" path="res://Assets/Overworld/Characters/Knight Placeholder/GreenKnight.png" id="4_2e83n"]
+[ext_resource type="Script" path="res://Scenes/enemy_dict.gd" id="5_jm055"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
 animations = [{
@@ -64,5 +65,6 @@ autoplay = "Idle"
 [node name="Abilities" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
+script = ExtResource("5_jm055")
 
 [node name="Enemy_abilities" type="Node" parent="."]
