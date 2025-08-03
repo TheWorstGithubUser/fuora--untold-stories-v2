@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl4t33t8hao4o"]
 
-[ext_resource type="Script" path="res://test_bul.gd" id="1_adgnl"]
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="1_h0smc"]
+[ext_resource type="Script" path="res://Scripts/Battle/Bullets/test_bul.gd" id="1_llwk7"]
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="2_nv5tv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3i3"]
 size = Vector2(190, 128)
@@ -10,15 +10,15 @@ size = Vector2(190, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_h0smc")
+"texture": ExtResource("2_nv5tv")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="bullet_test" type="RigidBody2D"]
-script = ExtResource("1_adgnl")
+[node name="bullet_test" type="Area2D"]
+script = ExtResource("1_llwk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1)

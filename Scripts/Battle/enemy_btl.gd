@@ -1,11 +1,23 @@
 extends Area2D
+@onready var animatedSprite = $AnimatedSprite2D
 
-# TODO: Make dictionary for enemies and make this script utilize it to place all of its attacks/sprites/etc
+@export var abilityDict : Node
+@export var positionID : int # Acceptable positions are 0, 1, and 2
+var enemyID : int # TODO: ID must be pulled from somewhere else on battle start
 
 func _ready() -> void:
-	pass 
-
-
+	if(enemyID != -1):
+		var enemy = EnemyDict.getEnemyAt(enemyID)
+		animatedSprite.set_sprite_frames(enemy.animatedSprite)
+		animatedSprite.play("Idle")
+		abilityDict.abilityTest(self.position)
+	else:
+		# TODO: This enemies existence should be ignored
+		# It shouldn't take damage, perform its turn, etc
+		pass
 
 func _process(delta: float) -> void:
 	pass
+
+# TODO: _process likely not used for much. Attacks/Abilities will play out a certain way each time, 
+# with a little randomness where needed

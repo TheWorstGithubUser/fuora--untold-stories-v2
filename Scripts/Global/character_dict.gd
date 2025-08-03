@@ -11,7 +11,7 @@ class Character:
 	var animatedSprite : SpriteFrames
 
 # Array for finding characters
-var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # idk how to set array lengths
 var party = [-1, 0, 2] # Holds character IDs
 # Default value for party is -1, which means no character is currently using that slot
 

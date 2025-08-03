@@ -1,21 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf8ctgnhpk7gy"]
+[gd_scene load_steps=3 format=3 uid="uid://cf8ctgnhpk7gy"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/enemy_btl.gd" id="1_gjt2v"]
-[ext_resource type="Texture2D" uid="uid://5fl0478i3ldw" path="res://Assets/Overworld/Enemies/MalhoundButLikeSmaller.png" id="2_x0huh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pkd2"]
 size = Vector2(140, 148)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o00xw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_x0huh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="enemy_btl" type="Area2D"]
 script = ExtResource("1_gjt2v")
@@ -25,4 +13,4 @@ position = Vector2(5, 12)
 shape = SubResource("RectangleShape2D_4pkd2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_o00xw")
+animation = &""

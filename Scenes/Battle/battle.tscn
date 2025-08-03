@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=9 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
 [ext_resource type="PackedScene" uid="uid://csdvhye637wf" path="res://Scenes/Battle/character_btl.tscn" id="2_i7djy"]
 [ext_resource type="PackedScene" uid="uid://c8plq10jcksaf" path="res://Scenes/Battle/fervent_soul.tscn" id="3_n8cj8"]
 [ext_resource type="PackedScene" uid="uid://cf8ctgnhpk7gy" path="res://Scenes/Battle/enemy_btl.tscn" id="4_ba1v5"]
+[ext_resource type="Script" path="res://Scripts/Battle/enemy_abil_dict.gd" id="6_ps050"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6dj4"]
 texture = ExtResource("1_xkhuu")
@@ -44,14 +45,22 @@ positionID = 2
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="enemy_btl" parent="Enemies" instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
 position = Vector2(1616, 204)
+abilityDict = NodePath("../enemyAbility_Dict")
 
-[node name="enemy_btl2" parent="Enemies" instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl2" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
 position = Vector2(1622, 508)
+abilityDict = NodePath("../enemyAbility_Dict")
 
-[node name="enemy_btl3" parent="Enemies" instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl3" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
 position = Vector2(1624, 814)
+abilityDict = NodePath("../enemyAbility_Dict")
+
+[node name="enemyAbility_Dict" type="Node" parent="Enemies"]
+script = ExtResource("6_ps050")
+
+[node name="Bullets" type="Node" parent="."]
 
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl" method="_on_signal_bus_btl_health_check"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl2" method="_on_signal_bus_btl_health_check"]

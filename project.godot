@@ -18,6 +18,11 @@ config/icon="res://Assets/Other/icon.svg"
 
 CharacterDict="*res://Scripts/Global/character_dict.gd"
 GameDictionary="*res://Scenes/dictionary.tscn"
+EnemyDict="*res://Scripts/Global/enemy_dict.gd"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
 
 [display]
 
