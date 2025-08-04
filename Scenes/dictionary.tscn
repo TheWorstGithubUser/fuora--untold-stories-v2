@@ -88,7 +88,8 @@ autoplay = "Idle"
 
 [node name="Abilities" type="Node" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Abilities"]
+[node name="testBullet" type="AnimatedSprite2D" parent="Abilities"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_i2r8x")
 animation = &"Idle"
 

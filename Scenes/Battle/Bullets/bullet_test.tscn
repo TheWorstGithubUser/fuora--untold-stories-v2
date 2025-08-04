@@ -27,3 +27,4 @@ shape = SubResource("RectangleShape2D_1c3i3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_02txe")
+autoplay = "default"

@@ -2,14 +2,15 @@ extends Node
 
 # Dictionary that also does the attacking for things
 # Enemies will call upon this dictionary to destroy their opponents
+#region bullet scenes
+@export var testBulletScene : PackedScene
+#endregion
 
 func _ready() -> void:
 	pass 
 
 func _process(delta: float) -> void:
 	pass
-
-#func _integrate_forces(state: PhysicsDirectBodyState2D)
 
 func fireAbility(ID : int) -> void:
 	pass
@@ -26,21 +27,24 @@ func teleport(rb : RigidBody2D, target : Transform2D) -> void:
 #region abilities
 func abilityTest(origin_position : Vector2) -> void:
 	# Spawn in a few bullets with some time in between each shot
-	#region setParams
-	#var bullet = Area2D.new()
-	#var bullet_col = CollisionShape2D.new()
-	#var bullet_anim = GameDictionary.get_child(1).get_child(0)
-	#bullet.add_child(bullet_col)
-	#bullet.add_child(bullet_anim)
-	#bullet_anim.play("Idle")
-	#bullet.position = origin_position
-	#bullet_col.position = bullet.position
-	#bullet_anim.position = bullet.position
-	#bullet.set_script("res://Scripts/Battle/Bullets/test_bul.gd")
-	#bullet.set_process(true)
+	# Spawn bullet 1
+	var bullet1 = testBulletScene.instantiate()
+	bullet1.position = origin_position
+	add_child(bullet1)
+	# Wait a few seconds
+	await get_tree().create_timer(3.4).timeout
 	
-	var bullet = preload("res://Scenes/Battle/Bullets/bullet_test.tscn")
-	bullet.position = origin_position
-	#endregion
+	# Spawn bullet 2
+	var bullet2 = testBulletScene.instantiate()
+	bullet2.position = origin_position
+	add_child(bullet2)
+	# Wait a few seconds
+	await get_tree().create_timer(3.4).timeout
+	
+	# Spawn bullet 3
+	var bullet3 = testBulletScene.instantiate()
+	bullet3.position = origin_position
+	add_child(bullet3)
+
 
 #endregion
