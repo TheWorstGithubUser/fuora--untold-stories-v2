@@ -4,6 +4,7 @@ extends Node
 # Enemies will call upon this dictionary to destroy their opponents
 #region bullet scenes
 @export var testBulletScene : PackedScene
+@export var bullet_rainScene : PackedScene
 #endregion
 
 func _ready() -> void:
@@ -14,7 +15,8 @@ func _process(delta: float) -> void:
 
 func fireAbility(ID : int) -> void:
 	pass
-	
+
+# What's this function for? Delete it later maybe
 func teleport(rb : RigidBody2D, target : Transform2D) -> void:
 	rb.linear_velocity = Vector2.ZERO
 	rb.angular_velocity = 0.0
@@ -46,5 +48,9 @@ func abilityTest(origin_position : Vector2) -> void:
 	bullet3.position = origin_position
 	add_child(bullet3)
 
-
+func bullet_rain(origin_position : Vector2) -> void:
+	# Spawn the bullet rain
+	var bullet_rain = bullet_rainScene.instantiate()
+	bullet_rain.position = origin_position
+	add_child(bullet_rain)
 #endregion

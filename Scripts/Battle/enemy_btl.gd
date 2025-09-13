@@ -10,7 +10,8 @@ func _ready() -> void:
 		var enemy = EnemyDict.getEnemyAt(enemyID)
 		animatedSprite.set_sprite_frames(enemy.animatedSprite)
 		animatedSprite.play("Idle")
-		abilityDict.abilityTest(self.position)
+		#abilityDict.abilityTest(self.position)
+		abilityDict.bullet_rain(Vector2(1553, 700))
 	else:
 		# TODO: This enemies existence should be ignored
 		# It shouldn't take damage, perform its turn, etc

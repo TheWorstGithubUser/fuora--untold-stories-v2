@@ -24,3 +24,4 @@ func _on_body_entered(body: Node2D) -> void:
 			nextMoronToTakeDamage == 2
 		else:
 			nextMoronToTakeDamage = 0
+	body.queue_free()

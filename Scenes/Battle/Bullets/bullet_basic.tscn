@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ber5cy1jrh65o"]
+
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="1_l8emk"]
+[ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_basic.gd" id="1_yral6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5spiy"]
+size = Vector2(188, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsiyg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l8emk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BulletBasic" type="RigidBody2D"]
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_yral6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_5spiy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fsiyg")
