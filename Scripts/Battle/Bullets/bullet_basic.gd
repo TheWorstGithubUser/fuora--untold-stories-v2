@@ -15,5 +15,6 @@ func _ready() -> void:
 	look_at(target)
 	
 func _physics_process(delta):
-		#look_at(target)
+		if(global_position.x < -100): # will make some abilities not work if fired from the left 
+			queue_free()					# but why would you ever do that
 		pass

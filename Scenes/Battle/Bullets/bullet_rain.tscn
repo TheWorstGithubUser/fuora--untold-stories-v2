@@ -1,8 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://d14p4kiptfqsc"]
+[gd_scene load_steps=5 format=3 uid="uid://d14p4kiptfqsc"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_rain.gd" id="1_gsb1m"]
 [ext_resource type="PackedScene" uid="uid://ber5cy1jrh65o" path="res://Scenes/Battle/Bullets/bullet_basic.tscn" id="2_axs5f"]
+[ext_resource type="Texture2D" uid="uid://cgfk88g2tfbn0" path="res://Assets/Other/icon.svg" id="3_cyomk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcrtd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cyomk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BulletRain" type="Node2D"]
 script = ExtResource("1_gsb1m")
 bullet_basicScene = ExtResource("2_axs5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vcrtd")
