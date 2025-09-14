@@ -11,8 +11,8 @@ func _ready() -> void:
 		animatedSprite.set_sprite_frames(enemy.animatedSprite)
 		animatedSprite.play("Idle")
 		#abilityDict.abilityTest(self.position)
-		abilityDict.bullet_rain(Vector2(2300, -150))
-		#abilityDict.bullet_explode(self.position)
+		#abilityDict.bullet_rain(Vector2(2300, -150))
+		abilityDict.bullet_explode(self.position)
 	else:
 		# TODO: This enemies existence should be ignored
 		# It shouldn't take damage, perform its turn, etc
