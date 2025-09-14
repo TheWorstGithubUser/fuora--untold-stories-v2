@@ -10,7 +10,6 @@ var target_offset = 50
 var target : Vector2
 
 func _ready() -> void:
-	#target = Vector2(452, 528)
 	add_constant_force(target.normalized() * speed)
 	look_at(target)
 	

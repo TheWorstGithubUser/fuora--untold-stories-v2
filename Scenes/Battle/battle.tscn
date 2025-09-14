@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=12 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Battle/enemy_abil_dict.gd" id="6_ps050"]
 [ext_resource type="PackedScene" uid="uid://cl4t33t8hao4o" path="res://Scenes/Battle/Bullets/bullet_test.tscn" id="7_o4s6l"]
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
+[ext_resource type="PackedScene" uid="uid://6yjkxkk4tnfc" path="res://Scenes/Battle/Bullets/bullet_explode.tscn" id="9_pdhaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6dj4"]
 texture = ExtResource("1_xkhuu")
@@ -63,6 +64,7 @@ abilityDict = NodePath("../enemyAbility_Dict")
 script = ExtResource("6_ps050")
 testBulletScene = ExtResource("7_o4s6l")
 bullet_rainScene = ExtResource("8_t82fa")
+bullet_explodeScene = ExtResource("9_pdhaq")
 
 [node name="Bullets" type="Node" parent="."]
 

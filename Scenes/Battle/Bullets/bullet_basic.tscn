@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ber5cy1jrh65o"]
 
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="1_l8emk"]
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="1_l8emk"]
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_basic.gd" id="1_yral6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5spiy"]

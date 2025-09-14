@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl4t33t8hao4o"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/test_bul.gd" id="1_llwk7"]
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="2_nv5tv"]
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="2_nv5tv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3i3"]
 size = Vector2(190, 128)

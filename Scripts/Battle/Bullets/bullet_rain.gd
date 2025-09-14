@@ -7,6 +7,7 @@ var soul_target_pos : Vector2
 var target_direction : Vector2
 # editable variables
 var bullet_cooldown = 1
+var bullet_speed = 250
 
 
 func _ready() -> void:
@@ -28,4 +29,5 @@ func _process(delta: float) -> void:
 		var bullet_basic = bullet_basicScene.instantiate()
 		bullet_basic.position = bullet_spawn_pos
 		bullet_basic.target = target_direction
+		bullet_basic.speed = bullet_speed
 		add_sibling(bullet_basic)

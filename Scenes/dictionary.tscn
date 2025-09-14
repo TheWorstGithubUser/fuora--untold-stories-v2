@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cu4uce3n82ym5" path="res://Assets/Overworld/Characters/Knight Placeholder/GreenKnight.png" id="4_2e83n"]
 [ext_resource type="Texture2D" uid="uid://5fl0478i3ldw" path="res://Assets/Overworld/Enemies/MalhoundButLikeSmaller.png" id="5_fdk7w"]
 [ext_resource type="Script" path="res://Scripts/Global/enemy_dict.gd" id="5_jm055"]
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/boolet_placeholder.png" id="5_l0ry5"]
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="5_l0ry5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
 animations = [{

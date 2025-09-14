@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwkojdgkqo7nr"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_mini.gd" id="1_dqvly"]
+[ext_resource type="Texture2D" uid="uid://dymtqfx2idvco" path="res://Assets/Battle/Bullets/boolet_placeholder_mini.png" id="2_tneef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymmce"]
+size = Vector2(106, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xaybx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tneef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BulletMini" type="RigidBody2D"]
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_dqvly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_ymmce")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xaybx")
