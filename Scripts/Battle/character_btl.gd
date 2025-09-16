@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_signal_bus_btl_health_check() -> void:
-	# Mr. SignalBus told me that I may or may not be fucking dead so lemme make sure
+	# Signal bus is requesting this character check their current health
 	if(CharacterDict.getCharacterAt(characterID).health <= 0):
-		# Shit they were right
 		print("I'm PROBABLY dead!!")
