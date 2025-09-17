@@ -4,6 +4,7 @@ extends Area2D
 # TODO: ID must be pulled from somewhere else
 @export var positionID : int # Acceptable positions are 0, 1, and 2
 var characterID : int
+@onready var alive = true
 
 func _ready() -> void:
 	characterID = CharacterDict.party[positionID]
@@ -22,4 +23,6 @@ func _process(delta: float) -> void:
 func _on_signal_bus_btl_health_check() -> void:
 	# Signal bus is requesting this character check their current health
 	if(CharacterDict.getCharacterAt(characterID).health <= 0):
-		print("I'm PROBABLY dead!!")
+		if(alive):
+			print(self.name + " has died")
+			alive = false

@@ -11,8 +11,8 @@ func _ready() -> void:
 		animatedSprite.set_sprite_frames(enemy.animatedSprite)
 		animatedSprite.play("Idle")
 		#abilityDict.abilityTest(self.position)
-		#abilityDict.bullet_rain(Vector2(2300, -150))
-		abilityDict.bullet_explode(self.position)
+		abilityDict.bullet_rain(Vector2(2300, -150))
+		#abilityDict.bullet_explode(self.position)
 	else:
 		# TODO: This enemies existence should be ignored
 		# It shouldn't take damage, perform its turn, etc
@@ -20,6 +20,3 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
-
-# TODO: _process likely not used for much. Attacks/Abilities will play out a certain way each time, 
-# with a little randomness where needed

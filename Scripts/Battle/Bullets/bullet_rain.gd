@@ -1,7 +1,7 @@
 extends Node2D
 # Non-editable variables
-@onready var rng = RandomNumberGenerator.new()
 @export var bullet_basicScene : PackedScene
+@onready var rng = RandomNumberGenerator.new()
 @onready var elapsed_time = 0
 var soul_target_pos : Vector2
 var target_direction : Vector2

@@ -13,6 +13,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+# TODO: Perform check on morons to make sure they arent dead before selecting them for damage
+# TODO: Pull damage from bullets instead of nowhere
+# TODO: Stop calling the party members morons. They are getting demoralized
 func _on_body_entered(body: Node2D) -> void:
 	damageTaken.emit(nextMoronToTakeDamage, 10) # 10 is a test value
 	lastMoronThatTookDamage = nextMoronToTakeDamage

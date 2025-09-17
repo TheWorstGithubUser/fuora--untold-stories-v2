@@ -1,7 +1,6 @@
 extends RigidBody2D
 # bullet that travels a definite distance rather than infinite
 # Pathing
-var position_forward : Vector2
 var elapsed_time = 0
 var elapsed_time2 = 0
 
@@ -25,8 +24,5 @@ func _physics_process(delta):
 			elapsed_time2 = 0
 		
 		if(elapsed_time >= time_to_travel):
-			# Wait a moment
-			
-			# and then die
 			queue_free()
 		

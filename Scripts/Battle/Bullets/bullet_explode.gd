@@ -3,7 +3,6 @@ extends RigidBody2D
 # Chosen bullet
 @export var bullet_miniScene : PackedScene
 # Pathing
-var position_forward : Vector2
 var elapsed_time = 0
 @onready var rng = RandomNumberGenerator.new()
 @onready var soul_target_pos = Vector2(452, 528)

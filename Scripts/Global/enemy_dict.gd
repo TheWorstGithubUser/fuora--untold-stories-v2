@@ -19,7 +19,6 @@ func _ready() -> void:
 	Malhound.health = Malhound.maxHealth
 	Malhound.animatedSprite = GameDictionary.get_child(2).get_child(Malhound.ID).get_sprite_frames() 
 	Enemies.insert(Malhound.ID, Malhound)
-	
 	#endregion
 
 func _process(delta: float) -> void:
