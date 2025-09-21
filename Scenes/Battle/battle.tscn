@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=14 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cl4t33t8hao4o" path="res://Scenes/Battle/Bullets/bullet_test.tscn" id="7_o4s6l"]
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
 [ext_resource type="PackedScene" uid="uid://6yjkxkk4tnfc" path="res://Scenes/Battle/Bullets/bullet_explode.tscn" id="9_pdhaq"]
+[ext_resource type="Texture2D" uid="uid://cgfk88g2tfbn0" path="res://Assets/Other/icon.svg" id="10_xd3fi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6dj4"]
 texture = ExtResource("1_xkhuu")
@@ -18,6 +19,9 @@ texture_region_size = Vector2i(250, 250)
 [sub_resource type="TileSet" id="TileSet_p08ns"]
 tile_size = Vector2i(250, 250)
 sources/0 = SubResource("TileSetAtlasSource_x6dj4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_daf6y"]
+font_size = 32
 
 [node name="Battle" type="Node2D"]
 
@@ -67,6 +71,159 @@ bullet_rainScene = ExtResource("8_t82fa")
 bullet_explodeScene = ExtResource("9_pdhaq")
 
 [node name="Bullets" type="Node" parent="."]
+
+[node name="AbilitySelectPhase" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="AbilitySelectPhase"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1000.0
+offset_bottom = 580.0
+
+[node name="Battle info" type="Label" parent="AbilitySelectPhase/Control"]
+layout_mode = 0
+offset_left = -593.0
+offset_top = 302.0
+offset_right = -101.0
+offset_bottom = 347.0
+text = "* The air crackles with freedom."
+label_settings = SubResource("LabelSettings_daf6y")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="AbilitySelectPhase/Control"]
+layout_mode = 0
+offset_left = -622.0
+offset_top = 277.0
+offset_right = -582.0
+offset_bottom = 317.0
+scale = Vector2(27.84, 5.52)
+
+[node name="Party 1 Select" type="Control" parent="AbilitySelectPhase/Control"]
+anchors_preset = 0
+offset_left = -363.0
+offset_top = -424.0
+offset_right = -323.0
+offset_bottom = -384.0
+
+[node name="Button" type="Button" parent="AbilitySelectPhase/Control/Party 1 Select"]
+offset_right = 58.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Attack"
+
+[node name="Button2" type="Button" parent="AbilitySelectPhase/Control/Party 1 Select"]
+offset_left = 274.0
+offset_right = 337.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Special"
+
+[node name="Button3" type="Button" parent="AbilitySelectPhase/Control/Party 1 Select"]
+offset_left = 569.0
+offset_right = 627.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Item"
+
+[node name="TextureRect" type="TextureRect" parent="AbilitySelectPhase/Control/Party 1 Select"]
+layout_mode = 0
+offset_left = -235.0
+offset_top = -11.0
+offset_right = -107.0
+offset_bottom = 117.0
+texture = ExtResource("10_xd3fi")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 1 Select"]
+offset_left = -259.0
+offset_top = 458.0
+offset_right = -219.0
+offset_bottom = 498.0
+scale = Vector2(27.84, 5.52)
+
+[node name="Party 2 Select" type="Control" parent="AbilitySelectPhase/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -363.0
+offset_top = -180.0
+offset_right = -323.0
+offset_bottom = -140.0
+
+[node name="TextureRect2" type="TextureRect" parent="AbilitySelectPhase/Control/Party 2 Select"]
+offset_left = -235.0
+offset_top = -9.0
+offset_right = -107.0
+offset_bottom = 119.0
+texture = ExtResource("10_xd3fi")
+
+[node name="Button" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+offset_right = 58.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Attack"
+
+[node name="Button2" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+offset_left = 274.0
+offset_right = 337.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Special"
+
+[node name="Button3" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+offset_left = 569.0
+offset_right = 627.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Item"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 2 Select"]
+offset_left = -259.0
+offset_top = -29.0
+offset_right = -219.0
+offset_bottom = 11.0
+scale = Vector2(27.84, 5.52)
+
+[node name="Party 3 Select" type="Control" parent="AbilitySelectPhase/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -363.0
+offset_top = 52.0
+offset_right = -323.0
+offset_bottom = 92.0
+
+[node name="Button" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+offset_right = 58.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Attack"
+
+[node name="Button2" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+offset_left = 274.0
+offset_right = 337.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Special"
+
+[node name="Button3" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+offset_left = 569.0
+offset_right = 627.0
+offset_bottom = 31.0
+scale = Vector2(4.55135, 5.32845)
+text = "Item"
+
+[node name="TextureRect3" type="TextureRect" parent="AbilitySelectPhase/Control/Party 3 Select"]
+offset_left = -235.0
+offset_top = 7.0
+offset_right = -107.0
+offset_bottom = 135.0
+texture = ExtResource("10_xd3fi")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 3 Select"]
+offset_left = -259.0
+offset_top = -504.0
+offset_right = -219.0
+offset_bottom = -464.0
+scale = Vector2(27.84, 5.52)
 
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl" method="_on_signal_bus_btl_health_check"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl2" method="_on_signal_bus_btl_health_check"]
