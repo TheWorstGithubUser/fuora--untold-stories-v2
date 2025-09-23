@@ -5,6 +5,7 @@ extends Area2D
 @export var positionID : int # Acceptable positions are 0, 1, and 2
 var characterID : int
 @onready var alive = true
+@onready var canFight = false
 
 func _ready() -> void:
 	characterID = CharacterDict.party[positionID]
@@ -26,3 +27,6 @@ func _on_signal_bus_btl_health_check() -> void:
 		if(alive):
 			print(self.name + " has died")
 			alive = false
+
+func _on_signal_bus_btl_battle_phase_change() -> void:
+	canFight = !canFight
