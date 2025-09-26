@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=15 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
 [ext_resource type="PackedScene" uid="uid://csdvhye637wf" path="res://Scenes/Battle/character_btl.tscn" id="2_i7djy"]
 [ext_resource type="PackedScene" uid="uid://c8plq10jcksaf" path="res://Scenes/Battle/fervent_soul.tscn" id="3_n8cj8"]
 [ext_resource type="PackedScene" uid="uid://cf8ctgnhpk7gy" path="res://Scenes/Battle/enemy_btl.tscn" id="4_ba1v5"]
+[ext_resource type="Script" path="res://Scripts/Battle/player_control.gd" id="4_bdmds"]
 [ext_resource type="Script" path="res://Scripts/Battle/enemy_abil_dict.gd" id="6_ps050"]
 [ext_resource type="PackedScene" uid="uid://cl4t33t8hao4o" path="res://Scenes/Battle/Bullets/bullet_test.tscn" id="7_o4s6l"]
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
@@ -38,6 +39,7 @@ tile_set = SubResource("TileSet_p08ns")
 position = Vector2(452, 528)
 
 [node name="Party" type="Node" parent="."]
+script = ExtResource("4_bdmds")
 
 [node name="character_btl" parent="Party" instance=ExtResource("2_i7djy")]
 position = Vector2(151, 198)
@@ -84,7 +86,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Battle info" type="Label" parent="AbilitySelectPhase/Control"]
-visible = false
 layout_mode = 0
 offset_left = 398.0
 offset_top = 815.0
@@ -145,16 +146,17 @@ offset_right = -107.0
 offset_bottom = 117.0
 texture = ExtResource("10_xd3fi")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 1 Select"]
+[node name="ReferenceRect4" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 1 Select"]
 layout_mode = 0
 offset_left = -259.0
-offset_top = 458.0
+offset_top = -28.0
 offset_right = -219.0
-offset_bottom = 498.0
+offset_bottom = 12.0
 scale = Vector2(27.84, 5.52)
 mouse_filter = 2
 
 [node name="Party 2 Select" type="Control" parent="AbilitySelectPhase/Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 628.0
@@ -171,7 +173,7 @@ offset_right = -107.0
 offset_bottom = 119.0
 texture = ExtResource("10_xd3fi")
 
-[node name="AttackButton" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+[node name="AttackButton2" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
 layout_mode = 0
 offset_right = 58.0
 offset_bottom = 31.0
@@ -179,7 +181,7 @@ scale = Vector2(4.55135, 5.32845)
 focus_mode = 0
 text = "Attack"
 
-[node name="SpecialButton" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+[node name="SpecialButton2" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
 layout_mode = 0
 offset_left = 274.0
 offset_right = 337.0
@@ -188,7 +190,7 @@ scale = Vector2(4.55135, 5.32845)
 focus_mode = 0
 text = "Special"
 
-[node name="ItemButton" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
+[node name="ItemButton2" type="Button" parent="AbilitySelectPhase/Control/Party 2 Select"]
 layout_mode = 0
 offset_left = 569.0
 offset_right = 627.0
@@ -197,7 +199,7 @@ scale = Vector2(4.55135, 5.32845)
 focus_mode = 0
 text = "Item"
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 2 Select"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 2 Select"]
 layout_mode = 0
 offset_left = -259.0
 offset_top = -29.0
@@ -207,6 +209,7 @@ scale = Vector2(27.84, 5.52)
 mouse_filter = 2
 
 [node name="Party 3 Select" type="Control" parent="AbilitySelectPhase/Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 628.0
@@ -215,7 +218,7 @@ offset_right = 668.0
 offset_bottom = 605.0
 mouse_filter = 2
 
-[node name="AttackButton" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+[node name="AttackButton3" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
 layout_mode = 0
 offset_right = 58.0
 offset_bottom = 31.0
@@ -224,7 +227,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 text = "Attack"
 
-[node name="SpecialButton" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+[node name="SpecialButton3" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
 layout_mode = 0
 offset_left = 274.0
 offset_right = 337.0
@@ -234,7 +237,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 text = "Special"
 
-[node name="ItemButton" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
+[node name="ItemButton3" type="Button" parent="AbilitySelectPhase/Control/Party 3 Select"]
 layout_mode = 0
 offset_left = 569.0
 offset_right = 627.0
@@ -252,16 +255,17 @@ offset_right = -107.0
 offset_bottom = 135.0
 texture = ExtResource("10_xd3fi")
 
-[node name="ReferenceRect4" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 3 Select"]
+[node name="ReferenceRect3" type="ReferenceRect" parent="AbilitySelectPhase/Control/Party 3 Select"]
 layout_mode = 0
 offset_left = -259.0
-offset_top = -504.0
+offset_top = -18.0
 offset_right = -219.0
-offset_bottom = -464.0
+offset_bottom = 22.0
 scale = Vector2(27.84, 5.52)
 mouse_filter = 2
 
 [node name="AbilitySelect" type="Control" parent="AbilitySelectPhase/Control"]
+visible = false
 anchors_preset = 0
 offset_left = 395.0
 offset_top = 803.0
@@ -279,6 +283,7 @@ focus_mode = 0
 text = "Ability1"
 
 [node name="Ability2" type="Button" parent="AbilitySelectPhase/Control/AbilitySelect"]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 98.0
 offset_right = 112.0
@@ -288,6 +293,7 @@ focus_mode = 0
 text = "Ability2"
 
 [node name="Ability3" type="Button" parent="AbilitySelectPhase/Control/AbilitySelect"]
+layout_mode = 0
 offset_left = 564.0
 offset_right = 630.0
 offset_bottom = 31.0
@@ -296,6 +302,7 @@ focus_mode = 0
 text = "Ability3"
 
 [node name="Ability4" type="Button" parent="AbilitySelectPhase/Control/AbilitySelect"]
+layout_mode = 0
 offset_left = 564.0
 offset_top = 98.0
 offset_right = 630.0
@@ -311,3 +318,17 @@ text = "Ability4"
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl2" method="_on_signal_bus_btl_health_check"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl3" method="_on_signal_bus_btl_health_check"]
 [connection signal="damageTaken" from="Fervent_Soul" to="SignalBus_btl" method="_on_fervent_soul_damage_taken"]
+[connection signal="battlePhaseStart" from="Party" to="SignalBus_btl" method="_on_party_battle_phase_start"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/AttackButton" to="Party" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/SpecialButton" to="Party" method="_on_special_button_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/ItemButton" to="Party" method="_on_item_button_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 2 Select/AttackButton2" to="Party" method="_on_attack_button_2_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 2 Select/SpecialButton2" to="Party" method="_on_special_button_2_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 2 Select/ItemButton2" to="Party" method="_on_item_button_2_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 3 Select/AttackButton3" to="Party" method="_on_attack_button_3_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 3 Select/SpecialButton3" to="Party" method="_on_special_button_3_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/Party 3 Select/ItemButton3" to="Party" method="_on_item_button_3_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/AbilitySelect/Ability1" to="Party" method="_on_ability_1_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/AbilitySelect/Ability2" to="Party" method="_on_ability_2_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/AbilitySelect/Ability3" to="Party" method="_on_ability_3_pressed"]
+[connection signal="pressed" from="AbilitySelectPhase/Control/AbilitySelect/Ability4" to="Party" method="_on_ability_4_pressed"]
