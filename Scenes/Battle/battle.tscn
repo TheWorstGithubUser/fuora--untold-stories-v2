@@ -36,6 +36,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = SubResource("TileSet_p08ns")
 
 [node name="Fervent_Soul" parent="." instance=ExtResource("3_n8cj8")]
+visible = false
 position = Vector2(452, 528)
 
 [node name="Party" type="Node" parent="."]
@@ -85,6 +86,58 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Party1Info" type="Control" parent="AbilitySelectPhase/Control"]
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 282.0
+offset_right = 126.0
+offset_bottom = 322.0
+
+[node name="Party1Health" type="TextureProgressBar" parent="AbilitySelectPhase/Control/Party1Info"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 28.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_xkhuu")
+texture_progress = ExtResource("10_xd3fi")
+
+[node name="Party2Info" type="Control" parent="AbilitySelectPhase/Control"]
+layout_mode = 1
+anchor_top = -0.0222222
+anchor_bottom = -0.0222222
+offset_left = 86.0
+offset_top = 633.0
+offset_right = 126.0
+offset_bottom = 673.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Party2Health" type="TextureProgressBar" parent="AbilitySelectPhase/Control/Party2Info"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 28.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_xkhuu")
+texture_progress = ExtResource("10_xd3fi")
+
+[node name="Party3Info" type="Control" parent="AbilitySelectPhase/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 960.0
+offset_right = 126.0
+offset_bottom = 1000.0
+
+[node name="Party3Health" type="TextureProgressBar" parent="AbilitySelectPhase/Control/Party3Info"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 28.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_xkhuu")
+texture_progress = ExtResource("10_xd3fi")
+
 [node name="Battle info" type="Label" parent="AbilitySelectPhase/Control"]
 layout_mode = 0
 offset_left = 398.0
@@ -102,6 +155,7 @@ offset_right = 409.0
 offset_bottom = 830.0
 scale = Vector2(27.84, 5.52)
 mouse_filter = 2
+editor_only = false
 
 [node name="Party 1 Select" type="Control" parent="AbilitySelectPhase/Control"]
 anchors_preset = 0
@@ -311,9 +365,13 @@ scale = Vector2(7, 3)
 focus_mode = 0
 text = "Ability4"
 
+[connection signal="battlePhaseChange" from="SignalBus_btl" to="Fervent_Soul" method="_on_signal_bus_btl_battle_phase_change"]
 [connection signal="battlePhaseChange" from="SignalBus_btl" to="Party/character_btl" method="_on_signal_bus_btl_battle_phase_change"]
 [connection signal="battlePhaseChange" from="SignalBus_btl" to="Party/character_btl2" method="_on_signal_bus_btl_battle_phase_change"]
 [connection signal="battlePhaseChange" from="SignalBus_btl" to="Party/character_btl3" method="_on_signal_bus_btl_battle_phase_change"]
+[connection signal="battlePhaseChange" from="SignalBus_btl" to="Enemies/enemy_btl" method="_on_signal_bus_btl_battle_phase_change"]
+[connection signal="battlePhaseChange" from="SignalBus_btl" to="Enemies/enemy_btl2" method="_on_signal_bus_btl_battle_phase_change"]
+[connection signal="battlePhaseChange" from="SignalBus_btl" to="Enemies/enemy_btl3" method="_on_signal_bus_btl_battle_phase_change"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl" method="_on_signal_bus_btl_health_check"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl2" method="_on_signal_bus_btl_health_check"]
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl3" method="_on_signal_bus_btl_health_check"]

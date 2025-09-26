@@ -4,6 +4,7 @@ extends Area2D
 @export var abilityDict : Node
 @export var positionID : int # Acceptable positions are 0, 1, and 2
 var enemyID : int # TODO: ID must be pulled from somewhere else on battle start
+@onready var battlePhase = false
 
 func _ready() -> void:
 	if(enemyID != -1):
@@ -20,3 +21,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_signal_bus_btl_battle_phase_change() -> void:
+	battlePhase = !battlePhase
+	if(battlePhase == true):
+		abilityDict.bullet_rain(Vector2(2300, -150))

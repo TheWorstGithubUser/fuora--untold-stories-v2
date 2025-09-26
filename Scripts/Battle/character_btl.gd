@@ -5,7 +5,12 @@ extends Area2D
 @export var positionID : int # Acceptable positions are 0, 1, and 2
 var characterID : int
 @onready var alive = true
-@onready var canFight = false
+@onready var battlePhase = false
+
+# UI
+@onready var party1Health = $"../../AbilitySelectPhase/Control/Party1Info/Party1Health"
+@onready var party2Health = $"../../AbilitySelectPhase/Control/Party2Info/Party2Health"
+@onready var party3Health = $"../../AbilitySelectPhase/Control/Party3Info/Party3Health"
 
 func _ready() -> void:
 	characterID = CharacterDict.party[positionID]
@@ -19,7 +24,15 @@ func _ready() -> void:
 		pass
 
 func _process(delta: float) -> void:
-	pass
+	_setHealth()
+	
+func _setHealth() -> void:
+	if(positionID == 0):
+		party1Health.set_value(CharacterDict.getCharacterAt(characterID).health)
+	if(positionID == 1):
+		party2Health.set_value(CharacterDict.getCharacterAt(characterID).health)
+	if(positionID == 2):
+		party3Health.set_value(CharacterDict.getCharacterAt(characterID).health)
 
 func _on_signal_bus_btl_health_check() -> void:
 	# Signal bus is requesting this character check their current health
@@ -29,4 +42,4 @@ func _on_signal_bus_btl_health_check() -> void:
 			alive = false
 
 func _on_signal_bus_btl_battle_phase_change() -> void:
-	canFight = !canFight
+	battlePhase = !battlePhase
