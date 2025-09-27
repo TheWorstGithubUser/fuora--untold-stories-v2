@@ -62,6 +62,7 @@ func _on_special_button_2_pressed() -> void:
 	# Allow player to choose a special move
 	abilitySelectUI.set_visible(true) # Make ability select visible
 	party2SelectUI.set_visible(false) # Make party 1's selection invisible
+	battleInfoUI.set_visible(false)
 
 func _on_item_button_2_pressed() -> void:
 	print("Item...")

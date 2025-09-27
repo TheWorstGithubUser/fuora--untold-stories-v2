@@ -9,6 +9,7 @@ signal damageTaken(nextMoron : int, damage : int)
 
 func _ready() -> void:
 	nextCharID = random.randi_range(0,2)
+	nextCharID = CharacterDict.getCharacterInParty(nextCharID)
 	lastCharID = -1
 
 func _process(delta: float) -> void:
@@ -16,17 +17,51 @@ func _process(delta: float) -> void:
 
 # TODO: Perform check on morons to make sure they arent dead before selecting them for damage
 # TODO: Pull damage from bullets instead of nowhere
+# TODO: Only party members with ID 0-2 can take damage
+
+func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
+	if(nextCharID == lastCharID || CharacterDict.getCharacterAt(nextCharID).health <= 0):
+		var partyPosition = CharacterDict.getPartyID(nextCharID)
+		if(partyPosition == 0):
+			partyPosition = random.randi_range(1,2)
+			if(CharacterDict.getCharacterInParty(partyPosition) == lastCharID 
+			|| CharacterDict.getCharacterAt(CharacterDict.getCharacterInParty(partyPosition)).health <= 0):
+				if(partyPosition == 1):
+					return CharacterDict.getCharacterInParty(2)
+			else:
+				nextCharID = CharacterDict.getCharacterInParty(partyPosition)
+				return nextCharID
+		if(partyPosition == 1):
+			# Select random number 0 or 2
+			partyPosition = random.randi_range(0,1)
+			if(partyPosition == 1):
+				partyPosition = 2
+			
+			if(CharacterDict.getCharacterInParty(partyPosition) == lastCharID 
+			|| CharacterDict.getCharacterAt(CharacterDict.getCharacterInParty(partyPosition)).health <= 0):
+				if(partyPosition == 0):
+					return CharacterDict.getCharacterInParty(2)
+			else:
+				nextCharID = CharacterDict.getCharacterInParty(partyPosition)
+				return nextCharID
+		if(partyPosition == 2):
+			partyPosition = random.randi_range(1,2)
+			if(CharacterDict.getCharacterInParty(partyPosition) == lastCharID 
+			|| CharacterDict.getCharacterAt(CharacterDict.getCharacterInParty(partyPosition)).health <= 0):
+				if(partyPosition == 1):
+					return CharacterDict.getCharacterInParty(2)
+			else:
+				nextCharID = CharacterDict.getCharacterInParty(partyPosition)
+				return nextCharID
+	return nextCharID
+
 func _on_body_entered(body: Node2D) -> void:
+	print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
 	damageTaken.emit(nextCharID, 34) # 34 is a test value
 	lastCharID = nextCharID
-	nextCharID = random.randi_range(0,2)
-	if(nextCharID == lastCharID):
-		if(nextCharID == 0):
-			nextCharID == 1
-		elif(nextCharID == 1):
-			nextCharID == 2
-		else:
-			nextCharID = 0
+	nextCharID = random.randi_range(0,2) # random number 0 - 2
+	nextCharID = CharacterDict.getCharacterInParty(nextCharID) # actual ID of party member
+	nextCharID = selectionValidityCheck(nextCharID, lastCharID)
 	body.queue_free()
 
 

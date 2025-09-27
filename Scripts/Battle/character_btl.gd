@@ -18,6 +18,7 @@ func _ready() -> void:
 		var character = CharacterDict.getCharacterAt(characterID)
 		animatedSprite.set_sprite_frames(character.animatedSprite)
 		animatedSprite.play("Idle")
+		self.name = CharacterDict.getCharacterAt(characterID).characterName
 	else:
 		# TODO: This characters existence should be ignored
 		# It shouldn't take damage, perform its turn, etc

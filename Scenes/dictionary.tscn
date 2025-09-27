@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bappaam1wf7qp"]
+[gd_scene load_steps=17 format=3 uid="uid://bappaam1wf7qp"]
 
 [ext_resource type="Script" path="res://Scripts/Global/character_dict.gd" id="1_267px"]
 [ext_resource type="Texture2D" uid="uid://cvd7jo3ndyiev" path="res://Assets/Overworld/Characters/Knight Placeholder/OurpleKnight.png" id="2_svhwf"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://5fl0478i3ldw" path="res://Assets/Overworld/Enemies/MalhoundButLikeSmaller.png" id="5_fdk7w"]
 [ext_resource type="Script" path="res://Scripts/Global/enemy_dict.gd" id="5_jm055"]
 [ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="5_l0ry5"]
+[ext_resource type="Texture2D" uid="uid://xds8uht30lp2" path="res://Assets/Overworld/Characters/kota_idle_1.png" id="5_ycc2r"]
+[ext_resource type="Texture2D" uid="uid://d0utlic3a2a87" path="res://Assets/Overworld/Characters/kota_idle_2.png" id="6_bkg2k"]
+[ext_resource type="Texture2D" uid="uid://wh00tlwa3joq" path="res://Assets/Overworld/Characters/kota_idle_4.png" id="7_17qr2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
 animations = [{
@@ -35,6 +38,26 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_2e83n")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f7wm"]
+animations = [{
+"frames": [{
+"duration": 2.3,
+"texture": ExtResource("5_ycc2r")
+}, {
+"duration": 2.3,
+"texture": ExtResource("6_bkg2k")
+}, {
+"duration": 2.3,
+"texture": ExtResource("5_ycc2r")
+}, {
+"duration": 2.3,
+"texture": ExtResource("7_17qr2")
 }],
 "loop": true,
 "name": &"Idle",
@@ -85,6 +108,13 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_8jptr")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="3_Kota" type="AnimatedSprite2D" parent="Characters"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_1f7wm")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0765441
 
 [node name="Abilities" type="Node" parent="."]
 
