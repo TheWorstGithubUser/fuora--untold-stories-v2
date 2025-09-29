@@ -15,9 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# TODO: Perform check on morons to make sure they arent dead before selecting them for damage
 # TODO: Pull damage from bullets instead of nowhere
-# TODO: Only party members with ID 0-2 can take damage
 
 func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
 	if(nextCharID == lastCharID || CharacterDict.getCharacterAt(nextCharID).health <= 0):
