@@ -22,7 +22,23 @@ func _ready() -> void:
 	pass 
 
 func _process(delta: float) -> void:
-	pass
+	if(battlePhase):
+		# Player can change which party member is selected
+		
+		pass
+	
+# Sets the ability for this character to be using
+func _setAbility(positionID: int, selection: int) -> void:
+	if(selection == 0): # Basic attack
+		pass
+	if(selection == 1): # Ability 1
+		pass
+	if(selection == 2): # Ability 2
+		pass
+	if(selection == 3): # Ability 3
+		pass
+	if(selection == 4): # Ability 4
+		pass
 
 # Party member 1
 func _on_attack_button_pressed() -> void:

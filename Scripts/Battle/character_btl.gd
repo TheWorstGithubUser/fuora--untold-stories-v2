@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_setHealth()
-	
+
 func _setHealth() -> void:
 	if(positionID == 0):
 		party1Health.set_value(CharacterDict.getCharacterAt(characterID).health)
