@@ -15,8 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# TODO: Pull damage from bullets instead of nowhere
-
 func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
 	if(nextCharID == lastCharID || CharacterDict.getCharacterAt(nextCharID).health <= 0):
 		var partyPosition = CharacterDict.getPartyID(nextCharID)
@@ -55,7 +53,7 @@ func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
-	damageTaken.emit(nextCharID, 34) # 34 is a test value
+	damageTaken.emit(nextCharID, 10) # 10 is a test value # TODO: Pull damage from bullets instead of nowhere
 	lastCharID = nextCharID
 	nextCharID = random.randi_range(0,2) # random number 0 - 2
 	nextCharID = CharacterDict.getCharacterInParty(nextCharID) # actual ID of party member
