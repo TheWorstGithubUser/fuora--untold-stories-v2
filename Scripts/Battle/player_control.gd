@@ -11,11 +11,17 @@ signal battlePhaseStart()
 @onready var party3SelectUI = $"../AbilitySelectPhase/Control/Party 3 Select"
 @onready var abilitySelectUI = $"../AbilitySelectPhase/Control/AbilitySelect"
 @onready var battleInfoUI = $"../AbilitySelectPhase/Control/Battle info"
-@onready var bottomBarUI = $"../AbilitySelectPhase/Control/ReferenceRect"
+@onready var bottomBarUI = $"../AbilitySelectPhase/Control/battle info ref rect"
+@onready var battleSelectionUI = $"../AbilitySelectPhase/Control/CurrentSelectionRefRect"
 
 # Logic
-@onready var currentlySelecting = 1 # used to define who is currently being selected in UI
-@onready var battlePhase = false # false means player is selecting their abilities
+var currentlySelecting = 1 # used to define who is currently being selected in UI
+var battlePhase = false # false means player is selecting their abilities
+var currentActiveParty = 1
+var timer = 0
+var party1Selection = -1 # 1 - 4 = Special 1 - 4
+var party2Selection = -1 # 5 = Basic attack
+var party3Selection = -1 # 6 = Item was used
 
 
 func _ready() -> void:
@@ -23,10 +29,38 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if(battlePhase):
+		battleSelectionUI.set_visible(true)
+		timer += delta
 		# Player can change which party member is selected
-		
-		pass
-	
+		# There needs to be a delay so that the selection doesnt change every frame
+		if(timer >= 0.15):
+			if(Input.is_action_pressed("ui_up")):
+				currentActiveParty = currentActiveParty - 1
+				timer = 0
+			if(Input.is_action_pressed("ui_down")):
+				currentActiveParty = currentActiveParty + 1
+				timer = 0
+			# clamp between 1 - 3, sorta
+			if(currentActiveParty <= 0):
+				currentActiveParty = 3
+			if(currentActiveParty >= 4):
+				currentActiveParty = 1
+			# See if they are attacking
+			if(Input.is_action_pressed("ui_select")):
+				print(str(currentActiveParty) + " is attacking or something")
+				#TODO: Put this party member on a cooldown so they cannot attack again
+				
+		if(currentActiveParty == 1):
+			battleSelectionUI.position = Vector2(97, 107)
+		elif(currentActiveParty == 2):
+			battleSelectionUI.position = Vector2(97, 434)
+		elif(currentActiveParty == 3):
+			battleSelectionUI.position = Vector2(97, 779)
+			
+	elif(battlePhase == false):
+		battleSelectionUI.set_visible(false)
+
+
 # Sets the ability for this character to be using
 func _setAbility(positionID: int, selection: int) -> void:
 	if(selection == 0): # Basic attack
@@ -44,11 +78,11 @@ func _setAbility(positionID: int, selection: int) -> void:
 func _on_attack_button_pressed() -> void:
 	party1SelectUI.set_visible(false) # Make party 1's selection invisible
 	party2SelectUI.set_visible(true) # Make party 2's selection visible
-	print("ATTACKK!!!!")
+	print("Party1 has selected a basic attack")
 	# TODO: Set party member 1's selection to attack
 
 func _on_special_button_pressed() -> void:
-	print("Special!!")
+	print("Party1 is choosing a special ability")
 	currentlySelecting = 1
 	# Allow player to choose a special move
 	abilitySelectUI.set_visible(true) # Make ability select visible
@@ -56,7 +90,7 @@ func _on_special_button_pressed() -> void:
 	battleInfoUI.set_visible(false)
 
 func _on_item_button_pressed() -> void:
-	print("Item...")
+	print("Party1 is choosing an item")
 	currentlySelecting = 1
 	# Allow player to choose an item
 		# Access player's stored items TODO: make that
@@ -69,11 +103,11 @@ func _on_item_button_pressed() -> void:
 func _on_attack_button_2_pressed() -> void:
 	party2SelectUI.set_visible(false) # Make party 2's selection invisible
 	party3SelectUI.set_visible(true) # Make party 3's selection visible
-	print("ATTACKK!!!!")
+	print("Party2 has selected a basic attack")
 	# TODO: Set party member 2's selection to attack
 
 func _on_special_button_2_pressed() -> void:
-	print("Special!!")
+	print("Party2 is choosing a special ability")
 	currentlySelecting = 2
 	# Allow player to choose a special move
 	abilitySelectUI.set_visible(true) # Make ability select visible
@@ -81,7 +115,7 @@ func _on_special_button_2_pressed() -> void:
 	battleInfoUI.set_visible(false)
 
 func _on_item_button_2_pressed() -> void:
-	print("Item...")
+	print("Party2 is choosing an item")
 	currentlySelecting = 2
 	# Allow player to choose an item
 		# Access player's stored items TODO: make that
@@ -93,7 +127,7 @@ func _on_item_button_2_pressed() -> void:
 # Party member 3
 func _on_attack_button_3_pressed() -> void:
 	party3SelectUI.set_visible(false) # Make party 3's selection invisible
-	print("ATTACKK!!!!")
+	print("Party3 has selected a basic attack")
 	battlePhase = true # might be redundant
 	battlePhaseStart.emit()
 	battleInfoUI.set_visible(false)
@@ -101,7 +135,7 @@ func _on_attack_button_3_pressed() -> void:
 	# TODO: Set party member 1's selection to attack
 
 func _on_special_button_3_pressed() -> void:
-	print("Special!!")
+	print("Party3 is choosing a special ability")
 	currentlySelecting = 3
 	# Allow player to choose a special move
 	abilitySelectUI.set_visible(true) # Make ability select visible
@@ -109,7 +143,7 @@ func _on_special_button_3_pressed() -> void:
 	battleInfoUI.set_visible(false)
 
 func _on_item_button_3_pressed() -> void:
-	print("Item...")
+	print("Party3 is choosing an item")
 	currentlySelecting = 3
 	# Allow player to choose an item
 		# Access player's stored items TODO: make that

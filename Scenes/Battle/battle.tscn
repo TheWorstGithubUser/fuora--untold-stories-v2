@@ -154,7 +154,7 @@ offset_bottom = 860.0
 text = "* The air crackles with freedom."
 label_settings = SubResource("LabelSettings_daf6y")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="AbilitySelectPhase/Control"]
+[node name="battle info ref rect" type="ReferenceRect" parent="AbilitySelectPhase/Control"]
 layout_mode = 0
 offset_left = 369.0
 offset_top = 790.0
@@ -162,6 +162,16 @@ offset_right = 409.0
 offset_bottom = 830.0
 scale = Vector2(27.84, 5.52)
 mouse_filter = 2
+editor_only = false
+
+[node name="CurrentSelectionRefRect" type="ReferenceRect" parent="AbilitySelectPhase/Control"]
+visible = false
+layout_mode = 0
+offset_left = 97.0
+offset_top = 107.0
+offset_right = 213.0
+offset_bottom = 287.0
+border_width = 6.0
 editor_only = false
 
 [node name="Party 1 Select" type="Control" parent="AbilitySelectPhase/Control"]

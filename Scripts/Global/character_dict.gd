@@ -68,8 +68,8 @@ func getCharacterInParty(ID : int) -> int:
 	return party[ID]
 	
 func getPartyID(ID : int) -> int:
-	for i in range(2):
+	for i in range(3):
 		if(ID == getCharacterInParty(i)):
 			return i
-	print("Error: Party member not in the party")
+	print("Error: Party member not in the party. Selected ID was " + str(ID))
 	return -1
