@@ -8,11 +8,12 @@ var target_direction : Vector2
 # editable variables
 var bullet_cooldown = 1
 var bullet_speed = 250
+var y_offset = 700
 
 
 func _ready() -> void:
 	soul_target_pos = Vector2(452, 528) # This is where the soul is at rn at least
-	target_direction = Vector2((soul_target_pos.x - global_position.x),(soul_target_pos.y - global_position.y))
+	target_direction = Vector2((soul_target_pos.x - global_position.x),((soul_target_pos.y + y_offset) - global_position.y))
 	rng.randomize()
 
 
@@ -22,8 +23,16 @@ func _process(delta: float) -> void:
 		# reset time
 		elapsed_time = 0
 		# Gemerate random spawn around the bullet rain
-		var x = rng.randi_range(-500, 500)
-		var y = rng.randi_range(-500, 500)
+		var x = rng.randi_range(-400, 400)
+		var y = rng.randi_range(-400, 400)
+		if(x >= 0):
+			x += 100
+		else:
+			x -= 100
+		if(y >= 0):
+			y += 100
+		else:
+			y -= 100
 		var bullet_spawn_pos = Vector2(global_position.x + x, global_position.y + y)
 		# Spawn a bullet that copies the angle from bullet_rain to the soul
 		var bullet_basic = bullet_basicScene.instantiate()

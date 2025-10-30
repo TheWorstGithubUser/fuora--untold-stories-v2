@@ -27,3 +27,4 @@ func _on_signal_bus_btl_battle_phase_change() -> void:
 	battlePhase = !battlePhase
 	if(battlePhase == true):
 		abilityDict.bullet_rain(Vector2(2300, -150))
+		#abilityDict.abilityTest(Vector2(position.x,position.y))

@@ -25,4 +25,14 @@ func _physics_process(delta):
 		
 		if(elapsed_time >= time_to_travel):
 			queue_free()
-		
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Collision with enemies/players is done elsewhere
+	# Destroy this bullet if colliding with an opposing bullet
+	print("collision")
+	if(body.allied == true):
+		# Check if this bullet is allied
+		if(self.allied == false):
+			queue_free()
+	elif(self.allied == true):
+		queue_free()

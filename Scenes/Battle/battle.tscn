@@ -1,12 +1,15 @@
-[gd_scene load_steps=18 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=21 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
+[ext_resource type="Script" path="res://Scripts/Battle/anim_control.gd" id="2_g85ut"]
 [ext_resource type="PackedScene" uid="uid://csdvhye637wf" path="res://Scenes/Battle/character_btl.tscn" id="2_i7djy"]
 [ext_resource type="PackedScene" uid="uid://c8plq10jcksaf" path="res://Scenes/Battle/fervent_soul.tscn" id="3_n8cj8"]
 [ext_resource type="PackedScene" uid="uid://cf8ctgnhpk7gy" path="res://Scenes/Battle/enemy_btl.tscn" id="4_ba1v5"]
 [ext_resource type="Script" path="res://Scripts/Battle/player_control.gd" id="4_bdmds"]
 [ext_resource type="Script" path="res://Scripts/Battle/enemy_abil_dict.gd" id="6_ps050"]
+[ext_resource type="Script" path="res://Scripts/Battle/player_abil_dict.gd" id="6_x47hi"]
+[ext_resource type="PackedScene" uid="uid://ber5cy1jrh65o" path="res://Scenes/Battle/Bullets/bullet_basic.tscn" id="7_8slcq"]
 [ext_resource type="PackedScene" uid="uid://cl4t33t8hao4o" path="res://Scenes/Battle/Bullets/bullet_test.tscn" id="7_o4s6l"]
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
 [ext_resource type="PackedScene" uid="uid://6yjkxkk4tnfc" path="res://Scenes/Battle/Bullets/bullet_explode.tscn" id="9_pdhaq"]
@@ -32,6 +35,9 @@ font_size = 32
 [node name="SignalBus_btl" type="Node" parent="."]
 script = ExtResource("1_invmm")
 
+[node name="AnimationController" type="Node" parent="."]
+script = ExtResource("2_g85ut")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 visible = false
 position = Vector2(4, -4)
@@ -55,6 +61,10 @@ positionID = 1
 [node name="character_btl3" parent="Party" instance=ExtResource("2_i7djy")]
 position = Vector2(149, 878)
 positionID = 2
+
+[node name="player_abil_dict" type="Node" parent="Party"]
+script = ExtResource("6_x47hi")
+bulletBasic = ExtResource("7_8slcq")
 
 [node name="Enemies" type="Node" parent="."]
 

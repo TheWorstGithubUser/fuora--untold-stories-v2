@@ -3,13 +3,14 @@ extends Node
 
 class Character:
 	var ID : int
-	var abil_list : ItemList
+	var abil_list : Array
 	var maxHealth : int
 	var health : int
 	var mana : int
 	var level = 1
 	var animatedSprite : SpriteFrames
 	var characterName : String
+	var cooldown = float(0.0)
 
 # Array for finding characters
 var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # idk how to set array lengths
@@ -23,6 +24,7 @@ func _ready() -> void:
 	#region characters
 	var testKnightOurple = Character.new()
 	testKnightOurple.ID = 0
+	testKnightOurple.abil_list = [0,1,2,3]
 	testKnightOurple.maxHealth = 100
 	testKnightOurple.health = testKnightOurple.maxHealth
 	testKnightOurple.mana = 100
@@ -32,6 +34,7 @@ func _ready() -> void:
 	
 	var testKnightBlue = Character.new()
 	testKnightBlue.ID = 1
+	testKnightBlue.abil_list = [0,1,2,3]
 	testKnightBlue.maxHealth = 100
 	testKnightBlue.health = testKnightBlue.maxHealth
 	testKnightBlue.mana = 100
@@ -42,16 +45,17 @@ func _ready() -> void:
 	# TODO: Replace with something else because its using the same anims as blue
 	var testKnightGreen = Character.new()
 	testKnightGreen.ID = 2
+	testKnightGreen.abil_list = [0,1,2,3]
 	testKnightGreen.maxHealth = 100
 	testKnightGreen.health = testKnightGreen.maxHealth
 	testKnightGreen.mana = 100
 	testKnightGreen.animatedSprite = GameDictionary.get_child(0).get_child(testKnightGreen.ID).get_sprite_frames()
 	testKnightGreen.characterName = "Green Knight"
 	Characters.insert(testKnightGreen.ID, testKnightGreen)
-	#ababababababababababa
 	
 	var kota = Character.new()
 	kota.ID = 3
+	kota.abil_list = [0,1,2,3]
 	kota.maxHealth = 100
 	kota.health = kota.maxHealth
 	kota.mana = 100
@@ -73,3 +77,9 @@ func getPartyID(ID : int) -> int:
 			return i
 	print("Error: Party member not in the party. Selected ID was " + str(ID))
 	return -1
+
+func _process(delta : float) -> void:
+	for CharacterID in self.party:
+		var character = getCharacterAt(getCharacterInParty(CharacterID-1))
+		if(character.cooldown > 0):		# Note for programming: cooldown will only be 0 on frame 1, and then never again
+			character.cooldown -= delta

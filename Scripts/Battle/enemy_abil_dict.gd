@@ -59,5 +59,6 @@ func bullet_explode(origin_position : Vector2) -> void:
 	# Spawn a single exploding bullet
 	var bullet_explode = bullet_explodeScene.instantiate()
 	bullet_explode.position = origin_position
+	bullet_explode.allied = false
 	add_child(bullet_explode)
 #endregion

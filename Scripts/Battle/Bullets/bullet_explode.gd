@@ -12,6 +12,7 @@ var elapsed_time = 0
 var speed = 50
 var target : Vector2
 var time_to_travel = 5
+var allied : bool
 
 
 func _ready() -> void:
@@ -36,12 +37,14 @@ func _physics_process(delta):
 			bullet1.position = bullet_spawn_pos
 			# this one shoots directly up
 			bullet1.target = Vector2(0,-3000)
+			bullet1.allied = self.allied
 			add_sibling(bullet1)
 			# bullet 2
 			var bullet2 = bullet_miniScene.instantiate()
 			bullet2.position = bullet_spawn_pos
 			# this one shoots down and to the left
 			bullet2.target = Vector2(-3000,3000)
+			bullet2.allied = self.allied
 			add_sibling(bullet2)
 			# bullet 3
 			var bullet3_spawn_pos = Vector2(global_position.x, global_position.y)
@@ -49,6 +52,7 @@ func _physics_process(delta):
 			bullet3.position = bullet_spawn_pos
 			# this one shoots down and to the right
 			bullet3.target = Vector2(3000,3000)
+			bullet3.allied = self.allied
 			add_sibling(bullet3)
 			# and then die
 			queue_free()

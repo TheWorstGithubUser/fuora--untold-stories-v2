@@ -52,13 +52,14 @@ func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
 	return nextCharID
 
 func _on_body_entered(body: Node2D) -> void:
-	print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
-	damageTaken.emit(nextCharID, 10) # 10 is a test value # TODO: Pull damage from bullets instead of nowhere
-	lastCharID = nextCharID
-	nextCharID = random.randi_range(0,2) # random number 0 - 2
-	nextCharID = CharacterDict.getCharacterInParty(nextCharID) # actual ID of party member
-	nextCharID = selectionValidityCheck(nextCharID, lastCharID)
-	body.queue_free()
+	if(body.allied == false):
+		print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
+		damageTaken.emit(nextCharID, 10) # 10 is a test value # TODO: Pull damage from bullets instead of nowhere
+		lastCharID = nextCharID
+		nextCharID = random.randi_range(0,2) # random number 0 - 2
+		nextCharID = CharacterDict.getCharacterInParty(nextCharID) # actual ID of party member
+		nextCharID = selectionValidityCheck(nextCharID, lastCharID)
+		body.queue_free()
 
 
 func _on_signal_bus_btl_battle_phase_change() -> void:

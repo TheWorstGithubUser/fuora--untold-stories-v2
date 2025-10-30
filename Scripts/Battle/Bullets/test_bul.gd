@@ -4,6 +4,7 @@ extends CharacterBody2D
 var soul_target_pos : Vector2
 @onready var elapsed_time = 0
 var position_forward : Vector2
+var allied = false
 
 # Stats
 @onready var health = 10
@@ -24,3 +25,14 @@ func _physics_process(delta):
 		# look_at(soul_target_pos)
 		move_and_slide()
 		elapsed_time += 1 * delta
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Collision with enemies/players is done elsewhere
+	# Destroy this bullet if colliding with an opposing bullet
+	print("collision")
+	if(body.allied == true):
+		# Check if this bullet is allied
+		if(self.allied == false):
+			queue_free()
+	elif(self.allied == true):
+		queue_free()
