@@ -24,7 +24,7 @@ func _ready() -> void:
 	#region characters
 	var testKnightOurple = Character.new()
 	testKnightOurple.ID = 0
-	testKnightOurple.abil_list = [0,1,2,3]
+	testKnightOurple.abil_list = [0,1,2,3,4]
 	testKnightOurple.maxHealth = 100
 	testKnightOurple.health = testKnightOurple.maxHealth
 	testKnightOurple.mana = 100
@@ -34,7 +34,7 @@ func _ready() -> void:
 	
 	var testKnightBlue = Character.new()
 	testKnightBlue.ID = 1
-	testKnightBlue.abil_list = [0,1,2,3]
+	testKnightBlue.abil_list = [0,1,2,3,4]
 	testKnightBlue.maxHealth = 100
 	testKnightBlue.health = testKnightBlue.maxHealth
 	testKnightBlue.mana = 100
@@ -42,10 +42,9 @@ func _ready() -> void:
 	testKnightBlue.characterName = "Blue Knight"
 	Characters.insert(testKnightBlue.ID, testKnightBlue)
 	
-	# TODO: Replace with something else because its using the same anims as blue
 	var testKnightGreen = Character.new()
 	testKnightGreen.ID = 2
-	testKnightGreen.abil_list = [0,1,2,3]
+	testKnightGreen.abil_list = [0,1,2,3,4]
 	testKnightGreen.maxHealth = 100
 	testKnightGreen.health = testKnightGreen.maxHealth
 	testKnightGreen.mana = 100
@@ -55,7 +54,7 @@ func _ready() -> void:
 	
 	var kota = Character.new()
 	kota.ID = 3
-	kota.abil_list = [0,1,2,3]
+	kota.abil_list = [0,1,2,3,4]
 	kota.maxHealth = 100
 	kota.health = kota.maxHealth
 	kota.mana = 100

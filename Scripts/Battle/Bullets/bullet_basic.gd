@@ -24,7 +24,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Collision with enemies/players is done elsewhere
 	# Destroy this bullet if colliding with an opposing bullet
-	print("collision")
+	#print("collision")
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):

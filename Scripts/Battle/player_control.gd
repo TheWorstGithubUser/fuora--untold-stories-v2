@@ -44,43 +44,43 @@ func _process(delta: float) -> void:
 					# TODO: Find which ability is associated with the selection player made
 					if(currentActiveParty == 1):
 						#region party1Selection
-						if(party1Selection == 1): # Special 1
+						if(party1Selection <= 5): # Special 1-4 and basic attack
 							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[0]
+							var abilityID = currentPartyMember.abil_list[party1Selection-1]
 							abil_dict.fireAbility(abilityID, party1Position, cursorPosition)
 							partyMemberIsAttacking = false
-							currentPartyMember.cooldown = 5
-							anim_controller.changeAnimation(currentActiveParty, "Attack")
-						elif(party1Selection == 2): # Special 2
-							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[1]
-							abil_dict.fireAbility(abilityID, party1Position, cursorPosition)
-							partyMemberIsAttacking = false
-							currentPartyMember.cooldown = 5
-							anim_controller.changeAnimation(currentActiveParty, "Attack")
-						elif(party1Selection == 3): # Special 3
-							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[2]
-							abil_dict.fireAbility(abilityID, party1Position, cursorPosition)
-							partyMemberIsAttacking = false
-							currentPartyMember.cooldown = 5
-							anim_controller.changeAnimation(currentActiveParty, "Attack")
-						elif(party1Selection == 4): # Special 4
-							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[3]
-							abil_dict.fireAbility(abilityID, party1Position, cursorPosition)
-							partyMemberIsAttacking = false
-							currentPartyMember.cooldown = 5
-							anim_controller.changeAnimation(currentActiveParty, "Attack")
-						elif(party1Selection == 5): # Basic attack
-							pass
+							currentPartyMember.cooldown = 5 #TODO: Make this vary based on the ability used
+							anim_controller.changeAnimation(currentActiveParty, "Attack") 
+							#TODO: Allow for special animations that may vary depending on the ability used
 						elif(party1Selection == 6): # Item
 							pass
 						#endregion
 					elif(currentActiveParty == 2):
-						pass
+						#region party2Selection
+						if(party2Selection <= 5): # Special 1-4 and basic attack
+							# find the ability, fire it, and reset
+							var abilityID = currentPartyMember.abil_list[party1Selection-1]
+							abil_dict.fireAbility(abilityID, party2Position, cursorPosition)
+							partyMemberIsAttacking = false
+							currentPartyMember.cooldown = 5 #TODO: Make this vary based on the ability used
+							anim_controller.changeAnimation(currentActiveParty, "Attack") 
+							#TODO: Allow for special animations that may vary depending on the ability used
+						elif(party1Selection == 6): # Item
+							pass
+						#endregion
 					elif(currentActiveParty == 3):
-						pass
+						#region party3Selection
+						if(party3Selection <= 5): # Special 1-4 and basic attack
+							# find the ability, fire it, and reset
+							var abilityID = currentPartyMember.abil_list[party1Selection-1]
+							abil_dict.fireAbility(abilityID, party3Position, cursorPosition)
+							partyMemberIsAttacking = false
+							currentPartyMember.cooldown = 5 #TODO: Make this vary based on the ability used
+							anim_controller.changeAnimation(currentActiveParty, "Attack") 
+							#TODO: Allow for special animations that may vary depending on the ability used
+						elif(party1Selection == 6): # Item
+							pass
+						#endregion
 					pass
 		else:
 			battleSelectionUI.set_visible(true)
