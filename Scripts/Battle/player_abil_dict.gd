@@ -30,7 +30,7 @@ func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
 	# Spawn in a few bullets with some variance to their direction and slight timing differences
 	var target = mouse_position
 	var offset = 75
-	var speed = 150
+	var speed = 200
 	# Spawn bullet 1
 	var bullet1 = bulletBasic.instantiate()
 	bullet1.position = origin_position

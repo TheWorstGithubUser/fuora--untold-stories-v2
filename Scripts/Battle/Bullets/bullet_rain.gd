@@ -6,8 +6,8 @@ extends Node2D
 var soul_target_pos : Vector2
 var target_direction : Vector2
 # editable variables
-var bullet_cooldown = 1
-var bullet_speed = 250
+var bullet_cooldown = 5
+var bullet_speed = 75
 var y_offset = 700
 
 

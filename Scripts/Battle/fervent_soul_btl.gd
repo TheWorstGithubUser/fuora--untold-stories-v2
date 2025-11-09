@@ -53,7 +53,7 @@ func selectionValidityCheck(nextCharID: int, lastCharID: int) -> int:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.allied == false):
-		print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
+		#print("dealing damage to " + CharacterDict.getCharacterAt(nextCharID).characterName)
 		damageTaken.emit(nextCharID, 10) # 10 is a test value # TODO: Pull damage from bullets instead of nowhere
 		lastCharID = nextCharID
 		nextCharID = random.randi_range(0,2) # random number 0 - 2

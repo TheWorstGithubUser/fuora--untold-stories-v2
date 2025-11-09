@@ -46,7 +46,7 @@ tile_set = SubResource("TileSet_p08ns")
 
 [node name="Fervent_Soul" parent="." instance=ExtResource("3_n8cj8")]
 visible = false
-position = Vector2(452, 528)
+position = Vector2(360, 528)
 
 [node name="Party" type="Node" parent="."]
 script = ExtResource("4_bdmds")

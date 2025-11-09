@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bappaam1wf7qp"]
+[gd_scene load_steps=25 format=3 uid="uid://bappaam1wf7qp"]
 
 [ext_resource type="Script" path="res://Scripts/Global/character_dict.gd" id="1_267px"]
 [ext_resource type="Texture2D" uid="uid://cvd7jo3ndyiev" path="res://Assets/Overworld/Characters/Knight Placeholder/OurpleKnight.png" id="2_svhwf"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cxyx128fem4cn" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_green_ded.png" id="8_o6v57"]
 [ext_resource type="Texture2D" uid="uid://bob40153gwric" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_green_idle.png" id="9_rtoei"]
 [ext_resource type="Texture2D" uid="uid://bhxitjfx4m6ki" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_green_think.png" id="10_lf51h"]
+[ext_resource type="Texture2D" uid="uid://bkidpiop43704" path="res://Assets/Overworld/Characters/kota_battle_attack_ready3.png" id="11_urg0i"]
+[ext_resource type="Texture2D" uid="uid://bxfpnv6sm3wuo" path="res://Assets/Overworld/Characters/kota_battle_attack_ready2.png" id="15_enqr3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m03w"]
 animations = [{
@@ -101,6 +103,19 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_1f7wm"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_urg0i")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 2.3,
 "texture": ExtResource("5_ycc2r")
 }, {
@@ -115,6 +130,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_enqr3")
+}],
+"loop": true,
+"name": &"Selected",
 "speed": 5.0
 }]
 
@@ -166,9 +189,8 @@ autoplay = "Idle"
 [node name="3_Kota" type="AnimatedSprite2D" parent="Characters"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_1f7wm")
-animation = &"Idle"
+animation = &"Attack"
 autoplay = "Idle"
-frame_progress = 0.0765441
 
 [node name="Abilities" type="Node" parent="."]
 
