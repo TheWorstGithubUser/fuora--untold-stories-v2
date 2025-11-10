@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkidpiop43704"
-path="res://.godot/imported/kota_battle_attack_ready3.png-1a316ea56d2a7f775d17b7f6e79eecef.ctex"
+uid="uid://d0utlic3a2a87"
+path="res://.godot/imported/kota_idle_2.png-3b06250ab1857ea56b71b4ea2fd070d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Overworld/Characters/kota_battle_attack_ready3.png"
-dest_files=["res://.godot/imported/kota_battle_attack_ready3.png-1a316ea56d2a7f775d17b7f6e79eecef.ctex"]
+source_file="res://Assets/Overworld/Characters/Kota/kota_idle_2.png"
+dest_files=["res://.godot/imported/kota_idle_2.png-3b06250ab1857ea56b71b4ea2fd070d2.ctex"]
 
 [params]
 

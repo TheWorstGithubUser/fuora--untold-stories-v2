@@ -4,6 +4,7 @@ extends Node
 # The player will call upon this dictionary to destroy their opponents
 #region bullet scenes
 @export var bulletBasic : PackedScene
+@export var python : PackedScene
 #endregion
 
 func _ready() -> void:
@@ -15,7 +16,7 @@ func _process(delta: float) -> void:
 func fireAbility(ID : int, origin_position, mouse_position) -> void:
 	# TODO: Make it so the ability used is dependent on the ability in that party members ability slot
 	if(ID == 0): # Ability 1
-		abilityTest(origin_position, mouse_position)
+		pythonAttack(origin_position)
 	elif(ID == 1): # Ability 2
 		abilityTest(origin_position, mouse_position)
 	elif(ID == 2): # Ability 3
@@ -63,6 +64,23 @@ func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
 	bullet3.speed = speed
 	add_child(bullet3)
 
-func pythonAttack() -> void:
-	pass
+func pythonAttack(origin_position : Vector2) -> void:
+	# Summon Python
+	var pythonHead = python.instantiate()
+	pythonHead.segment = "Head"
+	pythonHead.position = origin_position
+	add_child(pythonHead)
+	
+	var pythonBody = python.instantiate()
+	pythonBody.segment = "Body"
+	pythonBody.position = origin_position
+	pythonBody.head = pythonHead
+	add_child(pythonBody)
+	
+	var pythonTail = python.instantiate()
+	pythonTail.segment = "Tail"
+	pythonTail.position = origin_position
+	pythonTail.body = pythonBody
+	add_child(pythonTail)
+	
 #endregion
