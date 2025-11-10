@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 					currentActiveParty = 1
 				
 				if(Input.is_action_pressed("ui_select")): # Z (A party member is now ready to attack, and player cannot choose another character)
-					print(str(currentActiveParty) + " is attacking or something")
+					#print(str(currentActiveParty) + " is attacking or something")
 					partyMemberIsAttacking = true
 					#TODO: Put this party member on a cooldown so they cannot attack again
 				#endregion

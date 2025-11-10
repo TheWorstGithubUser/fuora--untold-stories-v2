@@ -62,4 +62,7 @@ func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
 	bullet3.allied = true
 	bullet3.speed = speed
 	add_child(bullet3)
+
+func pythonAttack() -> void:
+	pass
 #endregion
