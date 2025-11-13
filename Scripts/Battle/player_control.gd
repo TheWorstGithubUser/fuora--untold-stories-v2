@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 						#region party2Selection
 						if(party2Selection <= 5): # Special 1-4 and basic attack
 							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[party1Selection-1]
+							var abilityID = currentPartyMember.abil_list[party2Selection-1]
 							abil_dict.fireAbility(abilityID, party2Position, cursorPosition)
 							partyMemberIsAttacking = false
 							currentPartyMember.cooldown = 5 #TODO: Make this vary based on the ability used
@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 						#region party3Selection
 						if(party3Selection <= 5): # Special 1-4 and basic attack
 							# find the ability, fire it, and reset
-							var abilityID = currentPartyMember.abil_list[party1Selection-1]
+							var abilityID = currentPartyMember.abil_list[party3Selection-1]
 							abil_dict.fireAbility(abilityID, party3Position, cursorPosition)
 							partyMemberIsAttacking = false
 							currentPartyMember.cooldown = 5 #TODO: Make this vary based on the ability used

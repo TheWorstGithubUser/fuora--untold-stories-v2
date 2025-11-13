@@ -5,6 +5,7 @@ extends Node
 #region bullet scenes
 @export var bulletBasic : PackedScene
 @export var python : PackedScene
+@export var shield : PackedScene
 #endregion
 
 func _ready() -> void:
@@ -15,15 +16,16 @@ func _process(delta: float) -> void:
 
 func fireAbility(ID : int, origin_position, mouse_position) -> void:
 	# TODO: Make it so the ability used is dependent on the ability in that party members ability slot
-	if(ID == 0): # Ability 1
+	print("Attacking with ID : " + str(ID))
+	if(ID == 0):
 		pythonAttack(origin_position)
-	elif(ID == 1): # Ability 2
+	elif(ID == 1):
+		shieldWall(origin_position, mouse_position)
+	elif(ID == 2):
 		abilityTest(origin_position, mouse_position)
-	elif(ID == 2): # Ability 3
+	elif(ID == 3): 
 		abilityTest(origin_position, mouse_position)
-	elif(ID == 3): # Ability 4
-		abilityTest(origin_position, mouse_position)
-	elif(ID == 4): # Basic attack
+	elif(ID == 4): 
 		abilityTest(origin_position, mouse_position)
 # TODO: All bullets will be deleted at the end of a turn so long as they are a child of the Bullets node
 #region abilities
@@ -83,4 +85,10 @@ func pythonAttack(origin_position : Vector2) -> void:
 	pythonTail.body = pythonBody
 	add_child(pythonTail)
 	
+func shieldWall(origin_position : Vector2, mouse_position : Vector2) -> void:
+	var shieldWall = shield.instantiate()
+	shieldWall.position = origin_position
+	shieldWall.target = mouse_position
+	shieldWall.allied = true
+	add_child(shieldWall)
 #endregion

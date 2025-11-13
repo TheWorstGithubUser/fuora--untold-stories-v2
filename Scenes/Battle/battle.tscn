@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=24 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
@@ -14,10 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
 [ext_resource type="PackedScene" uid="uid://6ojqgugkatj1" path="res://Scenes/Battle/Bullets/bullet_python.tscn" id="9_5a06p"]
 [ext_resource type="PackedScene" uid="uid://6yjkxkk4tnfc" path="res://Scenes/Battle/Bullets/bullet_explode.tscn" id="9_pdhaq"]
+[ext_resource type="PackedScene" uid="uid://ckme0fookaq3i" path="res://Scenes/Battle/Bullets/bullet_wall.tscn" id="10_wlya3"]
 [ext_resource type="Texture2D" uid="uid://cgfk88g2tfbn0" path="res://Assets/Other/icon.svg" id="10_xd3fi"]
 [ext_resource type="Texture2D" uid="uid://dw6lei2tfm7db" path="res://Assets/Other/fuora_healthbar_kota_bg-export.png" id="11_ptlto"]
 [ext_resource type="Texture2D" uid="uid://c7cqrt85dfvm5" path="res://Assets/Other/fuora_healthbar-export.png" id="12_x1dv4"]
 [ext_resource type="Texture2D" uid="uid://bolvdj424bvu4" path="res://Assets/Other/fuora_healthbar_green-export.png" id="13_j3j8a"]
+[ext_resource type="PackedScene" uid="uid://dtyq5elhxjts3" path="res://Scenes/Battle/Bullets/bullet_tank.tscn" id="16_fj5cf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6dj4"]
 texture = ExtResource("1_xkhuu")
@@ -67,6 +69,7 @@ positionID = 2
 script = ExtResource("6_x47hi")
 bulletBasic = ExtResource("7_8slcq")
 python = ExtResource("9_5a06p")
+shield = ExtResource("10_wlya3")
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -87,6 +90,7 @@ script = ExtResource("6_ps050")
 testBulletScene = ExtResource("7_o4s6l")
 bullet_rainScene = ExtResource("8_t82fa")
 bullet_explodeScene = ExtResource("9_pdhaq")
+bullet_tankScene = ExtResource("16_fj5cf")
 
 [node name="Bullets" type="Node" parent="."]
 
@@ -363,7 +367,7 @@ offset_right = 112.0
 offset_bottom = 31.0
 scale = Vector2(7, 3)
 focus_mode = 0
-text = "Ability1"
+text = "Python"
 
 [node name="Ability2" type="Button" parent="AbilitySelectPhase/Control/AbilitySelect"]
 layout_mode = 0
@@ -373,7 +377,7 @@ offset_right = 112.0
 offset_bottom = 129.0
 scale = Vector2(7, 3)
 focus_mode = 0
-text = "Ability2"
+text = "Wall"
 
 [node name="Ability3" type="Button" parent="AbilitySelectPhase/Control/AbilitySelect"]
 layout_mode = 0

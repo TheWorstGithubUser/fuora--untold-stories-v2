@@ -6,6 +6,7 @@ extends Node
 @export var testBulletScene : PackedScene
 @export var bullet_rainScene : PackedScene
 @export var bullet_explodeScene : PackedScene
+@export var bullet_tankScene : PackedScene
 #endregion
 
 func _ready() -> void:
@@ -61,4 +62,10 @@ func bullet_explode(origin_position : Vector2) -> void:
 	bullet_explode.position = origin_position
 	bullet_explode.allied = false
 	add_child(bullet_explode)
+
+func bullet_tank(origin_position : Vector2) -> void:
+	var bullet_tank = bullet_tankScene.instantiate()
+	bullet_tank.position = origin_position
+	bullet_tank.allied = false
+	add_child(bullet_tank)
 #endregion

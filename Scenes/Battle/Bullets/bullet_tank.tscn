@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtyq5elhxjts3"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_tank.gd" id="1_pi4ym"]
+[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="2_dxhn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5spiy"]
+size = Vector2(384, 260)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsiyg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dxhn8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BulletBasic" type="RigidBody2D"]
+collision_mask = 2
+collision_priority = 0.0
+gravity_scale = 0.0
+script = ExtResource("1_pi4ym")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_5spiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_5spiy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.98887, 2.17139)
+sprite_frames = SubResource("SpriteFrames_fsiyg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
