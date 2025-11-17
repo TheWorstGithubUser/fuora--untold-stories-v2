@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b2xw0p0a2r5e1"]
+[gd_scene load_steps=25 format=4 uid="uid://b2xw0p0a2r5e1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/signal_bus_btl.gd" id="1_invmm"]
 [ext_resource type="Texture2D" uid="uid://b0riwuyvtewr2" path="res://Assets/Other/testgrass.png" id="1_xkhuu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d14p4kiptfqsc" path="res://Scenes/Battle/Bullets/bullet_rain.tscn" id="8_t82fa"]
 [ext_resource type="PackedScene" uid="uid://6ojqgugkatj1" path="res://Scenes/Battle/Bullets/bullet_python.tscn" id="9_5a06p"]
 [ext_resource type="PackedScene" uid="uid://6yjkxkk4tnfc" path="res://Scenes/Battle/Bullets/bullet_explode.tscn" id="9_pdhaq"]
+[ext_resource type="PackedScene" uid="uid://ds4fe0lu1qx21" path="res://Scenes/Battle/Bullets/python_parent.tscn" id="10_j26my"]
 [ext_resource type="PackedScene" uid="uid://ckme0fookaq3i" path="res://Scenes/Battle/Bullets/bullet_wall.tscn" id="10_wlya3"]
 [ext_resource type="Texture2D" uid="uid://cgfk88g2tfbn0" path="res://Assets/Other/icon.svg" id="10_xd3fi"]
 [ext_resource type="Texture2D" uid="uid://dw6lei2tfm7db" path="res://Assets/Other/fuora_healthbar_kota_bg-export.png" id="11_ptlto"]
@@ -69,6 +70,7 @@ positionID = 2
 script = ExtResource("6_x47hi")
 bulletBasic = ExtResource("7_8slcq")
 python = ExtResource("9_5a06p")
+pythonInfo = ExtResource("10_j26my")
 shield = ExtResource("10_wlya3")
 
 [node name="Enemies" type="Node" parent="."]

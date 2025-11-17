@@ -39,9 +39,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):
-			health -= 1
+			health -= body.health
 	elif(self.allied == true):
-		health -= 1
+		health -= body.health
 		
 func check_distances(p1 : Vector2, p2 : Vector2, margin : int) -> bool:
 	if(p1.x >= p2.x - margin and p1.x <= p2.x + margin):

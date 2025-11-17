@@ -5,6 +5,7 @@ extends Node
 #region bullet scenes
 @export var bulletBasic : PackedScene
 @export var python : PackedScene
+@export var pythonInfo : PackedScene
 @export var shield : PackedScene
 #endregion
 
@@ -16,7 +17,6 @@ func _process(delta: float) -> void:
 
 func fireAbility(ID : int, origin_position, mouse_position) -> void:
 	# TODO: Make it so the ability used is dependent on the ability in that party members ability slot
-	print("Attacking with ID : " + str(ID))
 	if(ID == 0):
 		pythonAttack(origin_position)
 	elif(ID == 1):
@@ -67,23 +67,27 @@ func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
 	add_child(bullet3)
 
 func pythonAttack(origin_position : Vector2) -> void:
+	# Summon Python information node
+	var pythonInformation = pythonInfo.instantiate()
+	add_child(pythonInformation)
 	# Summon Python
 	var pythonHead = python.instantiate()
 	pythonHead.segment = "Head"
 	pythonHead.position = origin_position
-	add_child(pythonHead)
+	pythonInformation.add_child(pythonHead)
 	
 	var pythonBody = python.instantiate()
 	pythonBody.segment = "Body"
 	pythonBody.position = origin_position
 	pythonBody.head = pythonHead
-	add_child(pythonBody)
+	pythonInformation.add_child(pythonBody)
 	
 	var pythonTail = python.instantiate()
 	pythonTail.segment = "Tail"
 	pythonTail.position = origin_position
 	pythonTail.body = pythonBody
-	add_child(pythonTail)
+	pythonInformation.add_child(pythonTail)
+	
 	
 func shieldWall(origin_position : Vector2, mouse_position : Vector2) -> void:
 	var shieldWall = shield.instantiate()
@@ -91,4 +95,5 @@ func shieldWall(origin_position : Vector2, mouse_position : Vector2) -> void:
 	shieldWall.target = mouse_position
 	shieldWall.allied = true
 	add_child(shieldWall)
+
 #endregion

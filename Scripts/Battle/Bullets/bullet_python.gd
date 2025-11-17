@@ -5,6 +5,7 @@ var cursorPosition : Vector2
 var speed = 500
 var allied = true # constant
 var direction : Vector2
+var health = 1 # Actually just serves as damage to other nodes... oopsie
 var head
 var body
 var tail
@@ -45,3 +46,14 @@ func check_distances(p1 : Vector2, p2 : Vector2, margin : int) -> bool:
 		if(p1.y >= p2.y - margin and p1.y <= p2.y + margin):
 			return true
 	return false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Collision with enemies/players is done elsewhere
+	if(body.allied == true):
+		# Check if this bullet is allied
+		if(self.allied == false):
+			#get_node().health -= body.health
+			get_parent().health -= body.health
+	elif(self.allied == true):
+		get_parent().health -= body.health

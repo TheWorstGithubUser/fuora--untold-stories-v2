@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://6ojqgugkatj1"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_python.gd" id="1_q0pcw"]
+[ext_resource type="Texture2D" uid="uid://bolvdj424bvu4" path="res://Assets/Other/fuora_healthbar_green-export.png" id="2_ntbaa"]
+[ext_resource type="Texture2D" uid="uid://c7cqrt85dfvm5" path="res://Assets/Other/fuora_healthbar-export.png" id="3_7wjfj"]
+[ext_resource type="Texture2D" uid="uid://dw6lei2tfm7db" path="res://Assets/Other/fuora_healthbar_kota_bg-export.png" id="4_yu5lk"]
+[ext_resource type="Script" path="res://Scenes/Battle/Bullets/bullet_python_body.gd" id="5_gq81w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fank2"]
+size = Vector2(149, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndlbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ntbaa")
+}],
+"loop": true,
+"name": &"Body",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7wjfj")
+}],
+"loop": true,
+"name": &"Head",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yu5lk")
+}],
+"loop": true,
+"name": &"Tail",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi3ux"]
+size = Vector2(149, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5ldw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ntbaa")
+}],
+"loop": true,
+"name": &"Body",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7wjfj")
+}],
+"loop": true,
+"name": &"Head",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yu5lk")
+}],
+"loop": true,
+"name": &"Tail",
+"speed": 5.0
+}]
+
+[node name="Node" type="Node"]
+
+[node name="BulletPython" type="RigidBody2D" parent="."]
+position = Vector2(552, 224)
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_q0pcw")
+
+[node name="Area2D" type="Area2D" parent="BulletPython"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPython/Area2D"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fank2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPython"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fank2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletPython"]
+sprite_frames = SubResource("SpriteFrames_ndlbu")
+animation = &"Head"
+
+[node name="Tail_Point" type="Node2D" parent="BulletPython"]
+position = Vector2(-71, 0)
+
+[node name="BulletPythonBody" type="RigidBody2D" parent="."]
+position = Vector2(398, 224)
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("5_gq81w")
+
+[node name="Area2D" type="Area2D" parent="BulletPythonBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPythonBody/Area2D"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fi3ux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPythonBody"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fi3ux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletPythonBody"]
+sprite_frames = SubResource("SpriteFrames_o5ldw")
+animation = &"Body"
+
+[node name="Tail_Point" type="Node2D" parent="BulletPythonBody"]
+position = Vector2(-71, 0)
+
+[node name="BulletPythonTail" type="RigidBody2D" parent="."]
+position = Vector2(243, 224)
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("5_gq81w")
+
+[node name="Area2D" type="Area2D" parent="BulletPythonTail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPythonTail/Area2D"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fi3ux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletPythonTail"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_fi3ux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletPythonTail"]
+sprite_frames = SubResource("SpriteFrames_o5ldw")
+animation = &"Tail"

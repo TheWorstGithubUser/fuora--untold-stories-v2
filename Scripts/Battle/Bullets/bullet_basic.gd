@@ -2,7 +2,7 @@ extends RigidBody2D
 # bullet that fires in a straight line
 
 # Stats
-@onready var health = 10
+@onready var health = 1
 var speed = 50
 var target : Vector2
 var allied : bool
@@ -18,6 +18,8 @@ func _ready() -> void:
 func _physics_process(delta):
 		if(global_position.x < -100): # will make some abilities not work if fired from the left 
 			queue_free()					# but why would you ever do that
+		if(health <= 0):
+			queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Collision with enemies/players is done elsewhere
@@ -25,6 +27,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):
-			queue_free()
+			health -= body.health
 	elif(self.allied == true):
-		queue_free()
+		health -= body.health

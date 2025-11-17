@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds4fe0lu1qx21"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/python_parent.gd" id="1_x62ku"]
+
+[node name="PythonParent" type="Node"]
+script = ExtResource("1_x62ku")
