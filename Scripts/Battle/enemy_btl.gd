@@ -6,6 +6,10 @@ extends Area2D
 var enemyID : int # TODO: ID must be pulled from somewhere else on battle start
 @onready var battlePhase = false
 
+var allied = false
+var health = 10
+var alive = true
+
 func _ready() -> void:
 	if(enemyID != -1):
 		var enemy = EnemyDict.getEnemyAt(enemyID)
@@ -20,7 +24,8 @@ func _ready() -> void:
 		pass
 
 func _process(delta: float) -> void:
-	pass
+	if(health <= 0):
+		queue_free()
 
 
 func _on_signal_bus_btl_battle_phase_change() -> void:
@@ -29,3 +34,8 @@ func _on_signal_bus_btl_battle_phase_change() -> void:
 		abilityDict.bullet_rain(Vector2(2300, -150))
 		#abilityDict.bullet_tank(self.position)
 		#abilityDict.abilityTest(Vector2(position.x,position.y))
+
+func _on_body_entered(body: Node2D) -> void:
+	if(body.allied == true):
+		health -= body.health
+		#body.queue_free()

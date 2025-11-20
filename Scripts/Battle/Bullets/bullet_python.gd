@@ -6,6 +6,7 @@ var speed = 500
 var allied = true # constant
 var direction : Vector2
 var health = 1 # Actually just serves as damage to other nodes... oopsie
+var damage = 2
 var head
 var body
 var tail
@@ -37,7 +38,6 @@ func _process(delta: float) -> void:
 		look_at(body.position)
 		self.position += direction.normalized() * speed * delta
 
-
 func find_direction(target : Vector2) -> Vector2:
 	return Vector2(target.x - self.position.x, target.y - self.position.y)
 	
@@ -47,13 +47,16 @@ func check_distances(p1 : Vector2, p2 : Vector2, margin : int) -> bool:
 			return true
 	return false
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Collision with enemies/players is done elsewhere
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):
-			#get_node().health -= body.health
-			get_parent().health -= body.health
+			get_parent().health -= body.damage
 	elif(self.allied == true):
-		get_parent().health -= body.health
+		get_parent().health -= body.damage
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	# Check if this is an enemy or player
+	if(area.is_in_group("BattleHitbox") && area.allied == false):
+		get_parent().health -= 999

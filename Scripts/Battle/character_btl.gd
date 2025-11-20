@@ -6,6 +6,7 @@ extends Area2D
 var characterID : int
 @onready var alive = true
 @onready var battlePhase = false
+var allied = true
 
 # UI
 @onready var party1Health = $"../../AbilitySelectPhase/Control/Party1Info/Party1Health"

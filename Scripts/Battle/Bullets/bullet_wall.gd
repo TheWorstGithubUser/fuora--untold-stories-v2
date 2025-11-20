@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # Stats
 var health = 5
+var damage = 5
 var fadeTime = 10 # Seconds
 var speed = 150
 var afterSpeed = 30
@@ -39,9 +40,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):
-			health -= body.health
+			health -= body.damage
 	elif(self.allied == true):
-		health -= body.health
+		health -= body.damage
 		
 func check_distances(p1 : Vector2, p2 : Vector2, margin : int) -> bool:
 	if(p1.x >= p2.x - margin and p1.x <= p2.x + margin):

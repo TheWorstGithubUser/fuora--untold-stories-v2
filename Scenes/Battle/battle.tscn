@@ -55,14 +55,14 @@ position = Vector2(360, 528)
 [node name="Party" type="Node" parent="."]
 script = ExtResource("4_bdmds")
 
-[node name="character_btl" parent="Party" instance=ExtResource("2_i7djy")]
+[node name="character_btl" parent="Party" groups=["BattleHitbox"] instance=ExtResource("2_i7djy")]
 position = Vector2(151, 198)
 
-[node name="character_btl2" parent="Party" instance=ExtResource("2_i7djy")]
+[node name="character_btl2" parent="Party" groups=["BattleHitbox"] instance=ExtResource("2_i7djy")]
 position = Vector2(157, 527)
 positionID = 1
 
-[node name="character_btl3" parent="Party" instance=ExtResource("2_i7djy")]
+[node name="character_btl3" parent="Party" groups=["BattleHitbox"] instance=ExtResource("2_i7djy")]
 position = Vector2(149, 878)
 positionID = 2
 
@@ -75,15 +75,15 @@ shield = ExtResource("10_wlya3")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="enemy_btl" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl" parent="Enemies" node_paths=PackedStringArray("abilityDict") groups=["BattleHitbox"] instance=ExtResource("4_ba1v5")]
 position = Vector2(1616, 204)
 abilityDict = NodePath("../enemyAbility_Dict")
 
-[node name="enemy_btl2" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl2" parent="Enemies" node_paths=PackedStringArray("abilityDict") groups=["BattleHitbox"] instance=ExtResource("4_ba1v5")]
 position = Vector2(1622, 508)
 abilityDict = NodePath("../enemyAbility_Dict")
 
-[node name="enemy_btl3" parent="Enemies" node_paths=PackedStringArray("abilityDict") instance=ExtResource("4_ba1v5")]
+[node name="enemy_btl3" parent="Enemies" node_paths=PackedStringArray("abilityDict") groups=["BattleHitbox"] instance=ExtResource("4_ba1v5")]
 position = Vector2(1624, 814)
 abilityDict = NodePath("../enemyAbility_Dict")
 
@@ -412,6 +412,9 @@ text = "Ability4"
 [connection signal="healthCheck" from="SignalBus_btl" to="Party/character_btl3" method="_on_signal_bus_btl_health_check"]
 [connection signal="damageTaken" from="Fervent_Soul" to="SignalBus_btl" method="_on_fervent_soul_damage_taken"]
 [connection signal="battlePhaseStart" from="Party" to="SignalBus_btl" method="_on_party_battle_phase_start"]
+[connection signal="body_entered" from="Enemies/enemy_btl" to="Enemies/enemy_btl" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemies/enemy_btl2" to="Enemies/enemy_btl2" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemies/enemy_btl3" to="Enemies/enemy_btl3" method="_on_body_entered"]
 [connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/AttackButton" to="Party" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/SpecialButton" to="Party" method="_on_special_button_pressed"]
 [connection signal="pressed" from="AbilitySelectPhase/Control/Party 1 Select/ItemButton" to="Party" method="_on_item_button_pressed"]

@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # Stats
 @onready var health = 1
+var damage = 1
 var speed = 50
 var target : Vector2
 var allied : bool
@@ -27,6 +28,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.allied == true):
 		# Check if this bullet is allied
 		if(self.allied == false):
-			health -= body.health
+			health -= body.damage
 	elif(self.allied == true):
-		health -= body.health
+		health -= body.damage

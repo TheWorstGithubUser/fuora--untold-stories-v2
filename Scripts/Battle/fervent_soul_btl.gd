@@ -61,6 +61,5 @@ func _on_body_entered(body: Node2D) -> void:
 		nextCharID = selectionValidityCheck(nextCharID, lastCharID)
 		body.queue_free()
 
-
 func _on_signal_bus_btl_battle_phase_change() -> void:
 	self.visible = !self.visible

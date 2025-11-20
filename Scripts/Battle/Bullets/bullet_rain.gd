@@ -16,7 +16,6 @@ func _ready() -> void:
 	target_direction = Vector2((soul_target_pos.x - global_position.x),((soul_target_pos.y + y_offset) - global_position.y))
 	rng.randomize()
 
-
 func _process(delta: float) -> void:
 	elapsed_time += delta
 	if(elapsed_time >= bullet_cooldown):
@@ -39,4 +38,6 @@ func _process(delta: float) -> void:
 		bullet_basic.position = bullet_spawn_pos
 		bullet_basic.target = target_direction
 		bullet_basic.speed = bullet_speed
+		bullet_basic.health = 1
+		bullet_basic.allied = false
 		add_sibling(bullet_basic)
