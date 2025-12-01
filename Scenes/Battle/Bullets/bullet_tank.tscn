@@ -1,13 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtyq5elhxjts3"]
+[gd_scene load_steps=9 format=3 uid="uid://dtyq5elhxjts3"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_tank.gd" id="1_pi4ym"]
+[ext_resource type="Texture2D" uid="uid://c5uawgksmt8me" path="res://Assets/Battle/Bullets/bul_malhound_slash1.png" id="2_bfba6"]
 [ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="2_dxhn8"]
+[ext_resource type="Texture2D" uid="uid://d57gqypq1kg4" path="res://Assets/Battle/Bullets/bul_malhound_slash2.png" id="3_sdp40"]
+[ext_resource type="Texture2D" uid="uid://cwtc7mwkim7uo" path="res://Assets/Battle/Bullets/bul_malhound_slash3.png" id="4_7ujpb"]
+[ext_resource type="Texture2D" uid="uid://cfi4xuj07drlr" path="res://Assets/Battle/Bullets/bul_malhound_slash4.png" id="5_m28jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5spiy"]
 size = Vector2(384, 260)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsiyg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bfba6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sdp40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7ujpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m28jx")
+}],
+"loop": true,
+"name": &"Malhound",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_dxhn8")
@@ -36,6 +57,8 @@ shape = SubResource("RectangleShape2D_5spiy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.98887, 2.17139)
 sprite_frames = SubResource("SpriteFrames_fsiyg")
+animation = &"Malhound"
+frame_progress = 0.110905
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

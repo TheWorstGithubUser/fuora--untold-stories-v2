@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://6yjkxkk4tnfc"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_explode.gd" id="1_0cmw0"]
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="1_gibsl"]
 [ext_resource type="PackedScene" uid="uid://cwkojdgkqo7nr" path="res://Scenes/Battle/Bullets/bullet_mini.tscn" id="2_rhga4"]
+[ext_resource type="Texture2D" uid="uid://bembsmsrn77i0" path="res://Assets/Battle/Bullets/Bomb.png" id="3_5v21h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86gjr"]
+size = Vector2(74, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ygab"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gibsl")
+"texture": ExtResource("3_5v21h")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_86gjr"]
-size = Vector2(184, 120)
 
 [node name="BulletExplode" type="RigidBody2D"]
 position = Vector2(808, 406)
@@ -25,9 +25,19 @@ gravity_scale = 0.0
 script = ExtResource("1_0cmw0")
 bullet_miniScene = ExtResource("2_rhga4")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_86gjr")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_2ygab")
+frame_progress = 0.0725421
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -1)
+position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_86gjr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

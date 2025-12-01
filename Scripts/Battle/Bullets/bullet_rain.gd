@@ -9,6 +9,8 @@ var target_direction : Vector2
 var bullet_cooldown = 5
 var bullet_speed = 75
 var y_offset = 700
+var maxBullets = 3
+var bulletsFired = 0
 
 
 func _ready() -> void:
@@ -17,10 +19,13 @@ func _ready() -> void:
 	rng.randomize()
 
 func _process(delta: float) -> void:
+	if(bulletsFired >= maxBullets):
+		queue_free()
 	elapsed_time += delta
 	if(elapsed_time >= bullet_cooldown):
 		# reset time
 		elapsed_time = 0
+		bulletsFired += 1
 		# Gemerate random spawn around the bullet rain
 		var x = rng.randi_range(-400, 400)
 		var y = rng.randi_range(-400, 400)

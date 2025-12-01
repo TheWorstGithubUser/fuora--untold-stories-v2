@@ -1,6 +1,5 @@
 extends Area2D
 @onready var animatedSprite = $AnimatedSprite2D
-
 # TODO: ID must be pulled from somewhere else
 @export var positionID : int # Acceptable positions are 0, 1, and 2
 var characterID : int

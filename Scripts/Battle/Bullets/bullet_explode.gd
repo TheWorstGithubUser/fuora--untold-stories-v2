@@ -8,12 +8,12 @@ var elapsed_time = 0
 @onready var soul_target_pos = Vector2(452, 528)
 
 # Stats
-@onready var health = 10
-var speed = 50
+var health = 1
+var damage = 1
+var speed = 20
 var target : Vector2
-var time_to_travel = 5
-var allied : bool
-
+var time_to_travel = 13
+var allied = false
 
 func _ready() -> void:
 	# create offsets
@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 		elapsed_time += delta
-		if(elapsed_time >= time_to_travel):
+		if(elapsed_time >= time_to_travel || health <= 0):
 			# spawn 3 mini projectiles
 			var bullet_spawn_pos = Vector2(global_position.x, global_position.y)
 			# bullet 1
@@ -57,3 +57,12 @@ func _physics_process(delta):
 			# and then die
 			queue_free()
 		
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Collision with enemies/players is done elsewhere
+	if(body.allied == true):
+		# Check if this bullet is allied
+		if(self.allied == false):
+			health -= body.damage
+	elif(self.allied == true):
+		health -= body.damage

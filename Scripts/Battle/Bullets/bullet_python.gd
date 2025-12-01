@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var segment : String 
 var cursorPosition : Vector2
-var speed = 500
+var speed = 250
 var allied = true # constant
 var direction : Vector2
 var health = 1 # Actually just serves as damage to other nodes... oopsie
@@ -28,12 +28,12 @@ func _process(delta: float) -> void:
 			look_at(cursorPosition)
 		self.position += direction.normalized() * speed * delta
 	elif(segment == "Body"):
-		if(!check_distances(head.position, self.position, 150)):
+		if(!check_distances(head.position, self.position, 100)):
 			direction = find_direction(head.position)
 		look_at(head.position)
 		self.position += direction.normalized() * speed * delta
 	elif(segment == "Tail"):
-		if(!check_distances(body.position, self.position, 150)):
+		if(!check_distances(body.position, self.position, 100)):
 			direction = find_direction(body.position)
 		look_at(body.position)
 		self.position += direction.normalized() * speed * delta

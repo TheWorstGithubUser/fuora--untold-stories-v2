@@ -1,7 +1,7 @@
 extends Node
 
 # Holds Python's information, updated by each segment of Python
-var health = 5
+var health = 10
 
 func _ready() -> void:
 	pass 

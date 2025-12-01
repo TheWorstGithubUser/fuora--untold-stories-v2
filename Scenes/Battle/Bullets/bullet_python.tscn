@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://6ojqgugkatj1"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_python.gd" id="1_q0pcw"]
-[ext_resource type="Texture2D" uid="uid://bolvdj424bvu4" path="res://Assets/Other/fuora_healthbar_green-export.png" id="2_ntbaa"]
-[ext_resource type="Texture2D" uid="uid://c7cqrt85dfvm5" path="res://Assets/Other/fuora_healthbar-export.png" id="3_7wjfj"]
-[ext_resource type="Texture2D" uid="uid://dw6lei2tfm7db" path="res://Assets/Other/fuora_healthbar_kota_bg-export.png" id="4_yu5lk"]
+[ext_resource type="Texture2D" uid="uid://l6fgevejudqg" path="res://Assets/Battle/Bullets/Python2.png" id="2_xny5q"]
+[ext_resource type="Texture2D" uid="uid://dbs0krnyxjmjg" path="res://Assets/Battle/Bullets/Python1.png" id="3_wsjkq"]
+[ext_resource type="Texture2D" uid="uid://beeb8msoonel7" path="res://Assets/Battle/Bullets/Python3.png" id="4_a1thf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fank2"]
 size = Vector2(149, 36)
@@ -12,7 +12,7 @@ size = Vector2(149, 36)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ntbaa")
+"texture": ExtResource("2_xny5q")
 }],
 "loop": true,
 "name": &"Body",
@@ -20,7 +20,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_7wjfj")
+"texture": ExtResource("3_wsjkq")
 }],
 "loop": true,
 "name": &"Head",
@@ -28,7 +28,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_yu5lk")
+"texture": ExtResource("4_a1thf")
 }],
 "loop": true,
 "name": &"Tail",
@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_fank2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ndlbu")
-animation = &"Head"
+animation = &"Tail"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

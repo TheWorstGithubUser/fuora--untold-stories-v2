@@ -4,14 +4,16 @@ extends RigidBody2D
 # Stats
 @onready var health = 1
 var damage = 1
-var speed = 50
+var speed = 25
 var target : Vector2
-var allied : bool
+@onready var allied : bool
 
 func find_direction() -> Vector2:
 	return Vector2(target.x - self.position.x, target.y - self.position.y)
 
 func _ready() -> void:
+	if(allied == false):
+		$AnimatedSprite2D.play("Malhound")
 	add_constant_force(find_direction().normalized() * speed)
 	self.linear_velocity = Vector2(find_direction().normalized() * speed)
 	look_at(target)

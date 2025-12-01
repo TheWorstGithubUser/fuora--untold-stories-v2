@@ -1,16 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://ber5cy1jrh65o"]
+[gd_scene load_steps=9 format=3 uid="uid://ber5cy1jrh65o"]
 
-[ext_resource type="Texture2D" uid="uid://d0g1vh82jydqm" path="res://Assets/Battle/Bullets/boolet_placeholder.png" id="1_l8emk"]
 [ext_resource type="Script" path="res://Scripts/Battle/Bullets/bullet_basic.gd" id="1_yral6"]
+[ext_resource type="Texture2D" uid="uid://c5uawgksmt8me" path="res://Assets/Battle/Bullets/bul_malhound_slash1.png" id="2_7k0yq"]
+[ext_resource type="Texture2D" uid="uid://d57gqypq1kg4" path="res://Assets/Battle/Bullets/bul_malhound_slash2.png" id="3_id25t"]
+[ext_resource type="Texture2D" uid="uid://cwtc7mwkim7uo" path="res://Assets/Battle/Bullets/bul_malhound_slash3.png" id="4_a4pws"]
+[ext_resource type="Texture2D" uid="uid://cfi4xuj07drlr" path="res://Assets/Battle/Bullets/bul_malhound_slash4.png" id="5_w2545"]
+[ext_resource type="Texture2D" uid="uid://be082i7vqlc37" path="res://Assets/Battle/Bullets/blueProjectile.png" id="6_xbwgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5spiy"]
-size = Vector2(188, 123)
+size = Vector2(118, 78)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsiyg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_l8emk")
+"texture": ExtResource("2_7k0yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_id25t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a4pws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w2545")
+}],
+"loop": true,
+"name": &"Malhound",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xbwgy")
 }],
 "loop": true,
 "name": &"default",
@@ -26,15 +47,15 @@ script = ExtResource("1_yral6")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -0.5)
-shape = SubResource("RectangleShape2D_5spiy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -0.5)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_5spiy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fsiyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_5spiy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
