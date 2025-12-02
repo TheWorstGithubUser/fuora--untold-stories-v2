@@ -24,13 +24,13 @@ func _ready() -> void:
 		pass
 
 @onready var timer = 0
-var cooldown = 1
+var cooldown = 7
 func _process(delta: float) -> void:
 	if(health <= 0):
 		EnemyDict.removeFromParty(positionID)
 		queue_free()
 	timer += delta
-	if(timer >= cooldown):
+	if(timer >= cooldown and battlePhase == true):
 		use_random_ability()
 		timer = 0
 
@@ -62,4 +62,5 @@ func _on_signal_bus_btl_battle_phase_change() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if(body.allied == true):
 		health -= body.health
+		body.health -= 999
 		#body.queue_free()

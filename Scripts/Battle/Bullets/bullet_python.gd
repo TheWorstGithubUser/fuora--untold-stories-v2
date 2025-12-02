@@ -5,8 +5,8 @@ var cursorPosition : Vector2
 var speed = 750
 var allied = true # constant
 var direction : Vector2
-var health = 999 # Actually just serves as damage to other nodes... oopsie
-var damage = 999
+var health = 2 # Actually just serves as damage to other nodes... oopsie
+var damage = 5
 var head
 var body
 var tail

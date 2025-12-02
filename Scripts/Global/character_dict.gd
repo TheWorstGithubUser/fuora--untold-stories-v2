@@ -61,7 +61,7 @@ func _ready() -> void:
 	kota.animatedSprite = GameDictionary.get_child(0).get_child(kota.ID).get_sprite_frames()
 	kota.characterName = "Kota"
 	Characters.insert(kota.ID, kota)
-	
+
 	#endregion
 
 func getCharacterAt(ID : int) -> Character:
@@ -79,16 +79,25 @@ func getPartyID(ID : int) -> int:
 
 func setCooldown(ID: int, cooldown: float) -> void:
 	getCharacterAt(ID).cooldown = cooldown
+	
+func addHealth(health, characterID):
+	getCharacterAt(characterID).health += health
+	print(getCharacterAt(characterID).characterName + " was healed " + str(health) + " health")
 
 var allPartyMembersDefeated = false
+var resetting = false
 func _process(delta : float) -> void:
-	allPartyMembersDefeated = true
+	if(!resetting):
+		allPartyMembersDefeated = true
 	for CharacterID in self.party:
 		var character = getCharacterAt(getCharacterInParty(CharacterID-1))
-		if(character.health >= 0):
+		if(Characters[CharacterID].health > 0):
 			allPartyMembersDefeated = false
 		if(character.cooldown > 0):		# Note for programming: cooldown will only be 0 on frame 1, and then never again
 			character.cooldown -= delta
 	if(allPartyMembersDefeated):
-		get_tree().change_scene_to_file("res://Scenes/Demo Scenes/GameOver.tscn")
+		addHealth(1, 3)
+		if(resetting == false):
+			get_tree().change_scene_to_file("res://Scenes/Demo Scenes/GameOver.tscn")
+			resetting = true
 		

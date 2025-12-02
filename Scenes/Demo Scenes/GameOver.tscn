@@ -1,34 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6ogepiepo1n8"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ogepiepo1n8"]
 
-[ext_resource type="Texture2D" uid="uid://gx7mj728ldrm" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized1.png" id="1_osfyf"]
-[ext_resource type="Texture2D" uid="uid://dahlgvkvmvshh" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized2.png" id="2_xlr5c"]
-[ext_resource type="Texture2D" uid="uid://n4cbjk8alpee" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized3.png" id="3_xy3o1"]
-[ext_resource type="Texture2D" uid="uid://csuu626ct2sma" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized4.png" id="4_xg4pe"]
+[ext_resource type="Texture2D" uid="uid://cikkokn4npy6i" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_blue_ded.png" id="4_p8tr6"]
 [ext_resource type="Texture2D" uid="uid://5fl0478i3ldw" path="res://Assets/Overworld/Enemies/MalhoundButLikeSmaller.png" id="5_qog48"]
-[ext_resource type="Texture2D" uid="uid://bhxitjfx4m6ki" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_green_think.png" id="6_prrtg"]
-[ext_resource type="Texture2D" uid="uid://dbs0krnyxjmjg" path="res://Assets/Battle/Bullets/Python1.png" id="7_7t0ev"]
 [ext_resource type="AudioStream" uid="uid://dynef2bth8cgi" path="res://Assets/Sound/mus_gameover.ogg" id="8_7uaev"]
 [ext_resource type="Script" path="res://Scenes/Demo Scenes/demoRetryButton.gd" id="9_lkqbt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jags2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_osfyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_xlr5c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xy3o1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xg4pe")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+animations = []
 
 [node name="Victory" type="Node2D"]
 
@@ -36,6 +14,7 @@ animations = [{
 position = Vector2(280, 569)
 scale = Vector2(1.92478, 2.06824)
 sprite_frames = SubResource("SpriteFrames_jags2")
+animation = &""
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 514.0
@@ -49,16 +28,6 @@ text = "	   Battle lost..."
 position = Vector2(1546, 546)
 scale = Vector2(2.06415, 2.06415)
 texture = ExtResource("5_qog48")
-
-[node name="KnightGreenThink" type="Sprite2D" parent="."]
-position = Vector2(529, 856)
-scale = Vector2(2.0522, 2.0522)
-texture = ExtResource("6_prrtg")
-
-[node name="Python1" type="Sprite2D" parent="."]
-position = Vector2(70, 299)
-scale = Vector2(1.79375, 1.79375)
-texture = ExtResource("7_7t0ev")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_7uaev")
@@ -78,7 +47,12 @@ current = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
 stream = ExtResource("8_7uaev")
+volume_db = -5.0
 autoplay = true
-stream_paused = true
+
+[node name="KnightBlueDed" type="Sprite2D" parent="."]
+position = Vector2(413, 596)
+scale = Vector2(2.66062, 2.32778)
+texture = ExtResource("4_p8tr6")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

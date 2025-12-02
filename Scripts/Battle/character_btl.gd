@@ -6,7 +6,8 @@ var characterID : int
 @onready var alive = true
 @onready var battlePhase = false
 var allied = true
-
+# Animations
+@onready var anim_controller = $"../../AnimationController"
 # UI
 @onready var party1Health = $"../../AbilitySelectPhase/Control/Party1Info/Party1Health"
 @onready var party2Health = $"../../AbilitySelectPhase/Control/Party2Info/Party2Health"
@@ -40,6 +41,7 @@ func _on_signal_bus_btl_health_check() -> void:
 	if(CharacterDict.getCharacterAt(characterID).health <= 0):
 		if(alive):
 			print(self.name + " has died")
+			anim_controller.changeAnimation(positionID+1, "Death")
 			alive = false
 
 func _on_signal_bus_btl_battle_phase_change() -> void:

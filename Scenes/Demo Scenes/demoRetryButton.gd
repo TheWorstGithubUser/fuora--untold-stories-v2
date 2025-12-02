@@ -12,4 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	CharacterDict.getCharacterAt(3).health = 100
+	CharacterDict.getCharacterAt(2).health = 100
+	CharacterDict.getCharacterAt(1).health = 100
+	CharacterDict.resetting = false
 	get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
