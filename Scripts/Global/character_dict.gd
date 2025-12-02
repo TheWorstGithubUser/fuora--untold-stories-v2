@@ -13,7 +13,7 @@ class Character:
 	var cooldown = float(0.0)
 
 # Array for finding characters
-var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # idk how to set array lengths
+var Characters = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # holds Characters
 var party = [1, 3, 2] # Holds character IDs
 # Default value for party is -1, which means no character is currently using that slot
 
@@ -77,8 +77,18 @@ func getPartyID(ID : int) -> int:
 	print("Error: Party member not in the party. Selected ID was " + str(ID))
 	return -1
 
+func setCooldown(ID: int, cooldown: float) -> void:
+	getCharacterAt(ID).cooldown = cooldown
+
+var allPartyMembersDefeated = false
 func _process(delta : float) -> void:
+	allPartyMembersDefeated = true
 	for CharacterID in self.party:
 		var character = getCharacterAt(getCharacterInParty(CharacterID-1))
+		if(character.health >= 0):
+			allPartyMembersDefeated = false
 		if(character.cooldown > 0):		# Note for programming: cooldown will only be 0 on frame 1, and then never again
 			character.cooldown -= delta
+	if(allPartyMembersDefeated):
+		get_tree().change_scene_to_file("res://Scenes/Demo Scenes/GameOver.tscn")
+		

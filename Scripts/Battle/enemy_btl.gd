@@ -14,21 +14,20 @@ var alive = true
 func _ready() -> void:
 	rng.randomize()
 	if(enemyID != -1):
+		EnemyDict.addToParty(enemyID, positionID)
 		var enemy = EnemyDict.getEnemyAt(enemyID)
 		animatedSprite.set_sprite_frames(enemy.animatedSprite)
 		animatedSprite.play("Idle")
-		#abilityDict.abilityTest(self.position)
-		#abilityDict.bullet_rain(Vector2(2300, -150))
-		#abilityDict.bullet_explode(self.position)
 	else:
 		# TODO: This enemies existence should be ignored
 		# It shouldn't take damage, perform its turn, etc
 		pass
 
 @onready var timer = 0
-var cooldown = 4
+var cooldown = 1
 func _process(delta: float) -> void:
 	if(health <= 0):
+		EnemyDict.removeFromParty(positionID)
 		queue_free()
 	timer += delta
 	if(timer >= cooldown):

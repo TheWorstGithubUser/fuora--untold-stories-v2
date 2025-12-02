@@ -18,7 +18,7 @@ func find_direction() -> Vector2:
 
 func _ready() -> void:
 	direction = find_direction()
-	look_at(target)
+	#look_at(target)
 
 func _physics_process(delta):
 	if(!check_distances(self.position, target, 1) and fadeTime >= 5 and hit_target == false):

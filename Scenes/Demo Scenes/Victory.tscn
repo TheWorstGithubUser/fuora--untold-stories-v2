@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7betkp6hpe1k"]
+
+[ext_resource type="Texture2D" uid="uid://gx7mj728ldrm" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized1.png" id="1_2615q"]
+[ext_resource type="Texture2D" uid="uid://dahlgvkvmvshh" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized2.png" id="2_urv75"]
+[ext_resource type="Texture2D" uid="uid://n4cbjk8alpee" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized3.png" id="3_ffqci"]
+[ext_resource type="Texture2D" uid="uid://csuu626ct2sma" path="res://Assets/Overworld/Characters/Kota/kota_battle_idle_2_resized4.png" id="4_78mlk"]
+[ext_resource type="Texture2D" uid="uid://5fl0478i3ldw" path="res://Assets/Overworld/Enemies/MalhoundButLikeSmaller.png" id="5_uy0rh"]
+[ext_resource type="Texture2D" uid="uid://bhxitjfx4m6ki" path="res://Assets/Overworld/Characters/Knight Placeholder/knight_green_think.png" id="6_1bg1t"]
+[ext_resource type="Texture2D" uid="uid://dbs0krnyxjmjg" path="res://Assets/Battle/Bullets/Python1.png" id="7_orljw"]
+[ext_resource type="AudioStream" uid="uid://il21n7uepqhk" path="res://Assets/Sound/castle_funk_long.ogg" id="8_yqj8p"]
+[ext_resource type="Script" path="res://Scenes/Demo Scenes/demoRetryButton.gd" id="9_lx85k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jags2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2615q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_urv75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ffqci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_78mlk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Victory" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(280, 569)
+scale = Vector2(1.92478, 2.06824)
+sprite_frames = SubResource("SpriteFrames_jags2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 514.0
+offset_top = 2.0
+offset_right = 670.0
+offset_bottom = 58.0
+scale = Vector2(5.56398, 6.08104)
+text = "	   Battle won!
+Thanks for playing!"
+
+[node name="MalhoundButLikeSmaller" type="Sprite2D" parent="."]
+position = Vector2(1546, 546)
+scale = Vector2(2.06415, 2.06415)
+texture = ExtResource("5_uy0rh")
+
+[node name="KnightGreenThink" type="Sprite2D" parent="."]
+position = Vector2(529, 856)
+scale = Vector2(2.0522, 2.0522)
+texture = ExtResource("6_1bg1t")
+
+[node name="Python1" type="Sprite2D" parent="."]
+position = Vector2(70, 299)
+scale = Vector2(1.79375, 1.79375)
+texture = ExtResource("7_orljw")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 652.0
+offset_top = 356.0
+offset_right = 746.0
+offset_bottom = 387.0
+scale = Vector2(6.47755, 6.06066)
+text = "Play again?"
+script = ExtResource("9_lx85k")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("8_yqj8p")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

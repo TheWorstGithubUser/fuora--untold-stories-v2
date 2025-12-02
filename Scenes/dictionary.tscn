@@ -192,7 +192,7 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_1f7wm")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.909479
+frame_progress = 0.621378
 
 [node name="Abilities" type="Node" parent="."]
 

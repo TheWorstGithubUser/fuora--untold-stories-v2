@@ -15,21 +15,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func fireAbility(ID : int, origin_position, mouse_position) -> void:
+func fireAbility(ID : int, origin_position, mouse_position, characterID) -> void:
 	# TODO: Make it so the ability used is dependent on the ability in that party members ability slot
 	if(ID == 0):
-		pythonAttack(origin_position)
+		pythonAttack(origin_position, characterID)
 	elif(ID == 1):
-		shieldWall(origin_position, mouse_position)
+		shieldWall(origin_position, mouse_position, characterID)
 	elif(ID == 2):
-		abilityTest(origin_position, mouse_position)
+		abilityTest(origin_position, mouse_position, characterID)
 	elif(ID == 3): 
-		abilityTest(origin_position, mouse_position)
+		abilityTest(origin_position, mouse_position, characterID)
 	elif(ID == 4): 
-		abilityTest(origin_position, mouse_position)
+		abilityTest(origin_position, mouse_position, characterID)
 # TODO: All bullets will be deleted at the end of a turn so long as they are a child of the Bullets node
 #region abilities
-func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
+func abilityTest(origin_position : Vector2, mouse_position : Vector2, ID : int) -> void:
+	CharacterDict.setCooldown(ID, 5)
 	# Spawn in a few bullets with some variance to their direction and slight timing differences
 	var target = mouse_position
 	var offset = 75
@@ -66,9 +67,12 @@ func abilityTest(origin_position : Vector2, mouse_position : Vector2) -> void:
 	bullet3.speed = speed
 	add_child(bullet3)
 
-func pythonAttack(origin_position : Vector2) -> void:
+func pythonAttack(origin_position : Vector2, ID : int) -> void:
+	# Set cooldown to a bajillion
+	CharacterDict.setCooldown(ID, 999)
 	# Summon Python information node
 	var pythonInformation = pythonInfo.instantiate()
+	pythonInformation.userID = ID
 	add_child(pythonInformation)
 	# Summon Python
 	var pythonHead = python.instantiate()
@@ -88,8 +92,8 @@ func pythonAttack(origin_position : Vector2) -> void:
 	pythonTail.body = pythonBody
 	pythonInformation.add_child(pythonTail)
 	
-	
-func shieldWall(origin_position : Vector2, mouse_position : Vector2) -> void:
+func shieldWall(origin_position : Vector2, mouse_position : Vector2, ID : int) -> void:
+	CharacterDict.setCooldown(ID, 5)
 	var shieldWall = shield.instantiate()
 	shieldWall.position = origin_position
 	shieldWall.target = mouse_position

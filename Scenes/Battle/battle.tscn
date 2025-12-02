@@ -82,10 +82,12 @@ abilityDict = NodePath("../enemyAbility_Dict")
 [node name="enemy_btl2" parent="Enemies" node_paths=PackedStringArray("abilityDict") groups=["BattleHitbox"] instance=ExtResource("4_ba1v5")]
 position = Vector2(1622, 508)
 abilityDict = NodePath("../enemyAbility_Dict")
+positionID = 1
 
 [node name="enemy_btl3" parent="Enemies" node_paths=PackedStringArray("abilityDict") groups=["BattleHitbox"] instance=ExtResource("4_ba1v5")]
 position = Vector2(1624, 814)
 abilityDict = NodePath("../enemyAbility_Dict")
+positionID = 2
 
 [node name="enemyAbility_Dict" type="Node" parent="Enemies"]
 script = ExtResource("6_ps050")

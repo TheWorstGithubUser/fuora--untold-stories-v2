@@ -2,11 +2,11 @@ extends RigidBody2D
 
 var segment : String 
 var cursorPosition : Vector2
-var speed = 250
+var speed = 750
 var allied = true # constant
 var direction : Vector2
-var health = 1 # Actually just serves as damage to other nodes... oopsie
-var damage = 2
+var health = 999 # Actually just serves as damage to other nodes... oopsie
+var damage = 999
 var head
 var body
 var tail
