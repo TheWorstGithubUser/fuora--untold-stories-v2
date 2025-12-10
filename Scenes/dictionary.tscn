@@ -184,7 +184,7 @@ autoplay = "Idle"
 [node name="2_TestKnightGreen" type="AnimatedSprite2D" parent="Characters"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_8jptr")
-animation = &"Death"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="3_Kota" type="AnimatedSprite2D" parent="Characters"]
@@ -192,7 +192,6 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_1f7wm")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.621378
 
 [node name="Abilities" type="Node" parent="."]
 
